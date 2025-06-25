@@ -944,12 +944,12 @@ namespace letterImage {
                     continue;
                 } else if (c == ".") {
                     S = 26
-                    screenImage.drawTransparentImage(letters[S], X, y)
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
                 } else if (c == "!") {
                     S = 27
-                    screenImage.drawTransparentImage(letters[S], X, y)
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
                 } else if (c == "#") {
