@@ -593,6 +593,42 @@ letters = [
 ]
 screenImage = image.create(160, 120)
 let mySprite = sprites.create(screenImage, SpriteKind.Player)
+let DownImage = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+let TopImage = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
 //%block="Letter Image"
 //%icon=""
 //%color=#000000
@@ -999,7 +1035,7 @@ namespace letterImage {
     //%i.shadow=screen_image_picker
     //%block="Set Top image to $i"
     export function setImage(i: Image): void {
-let TopImage = sprites.create(i , SpriteKind.Player)
+TopImage.setImage(i)
 TopImage.x = 27
 TopImage.y = 25
     }
@@ -1007,7 +1043,7 @@ TopImage.y = 25
     //%i.shadow=screen_image_picker
     //%block="Set Down image to $i"
     export function setImage2(i: Image): void {
-        let DownImage = sprites.create(i, SpriteKind.Player)
+        DownImage.setImage(i)
         DownImage.x = 133
         DownImage.y = 97
     }
