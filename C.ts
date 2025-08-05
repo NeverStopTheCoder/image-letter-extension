@@ -974,9 +974,9 @@ namespace letterImage {
             }
                if (!choice) {
                 if (choice == MyEnum.Yes) {
-                Text3("UP",60,50)
+                Text3("YES",60,50)
 
-                Text3("DOWN", 90, 50)
+                Text3("NO", 90, 50)
                 }
             }
                 if (choice == MyEnum.Yes) {
