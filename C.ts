@@ -6,6 +6,10 @@ enum MyEnum {
 }
 let L2 = 0
 let I2 = 0
+let I3 = 0
+let L3 = 0
+let X3 = 0
+let Y3 = 0
 let c = ""
 let F = 0
 let Code = 0
@@ -23,10 +27,8 @@ let X = 0
 let selectit = 0
 let selectit2 = 0
 let sg = 0
-let sg2 = 0
-let arruow: Sprite = null
-let arruow2: Sprite = null
 let image2: Sprite = null
+let arrow: Sprite = null
 let letters: Image[] = []
 letters = [
     img`
@@ -907,16 +909,11 @@ namespace letterImage {
 
     }
     //%group="set Dialogue Text"
-    //%block="set Dialogue Top to $MyText || with $choice"
-    export function text(MyText: string,choice?: MyEnum): void {
+    //%block="set Dialogue Top to $MyText"
+    export function text(MyText: string): void {
         if (I != 4) {
             I += 1
-            if (choice == MyEnum.Yes) {
                 y = 1
-                sg2 = 1
-            } else {
-                y = 1
-            }
             for (let index = 0; index <= MyText.length - 1; index++) {
                 if (L > 0 && L % 11 == 0) {
                     X = 58
@@ -972,35 +969,6 @@ namespace letterImage {
                 X += 10
                 pause(100)
             }
-               if (!choice) {
-                if (choice == MyEnum.Yes) {
-                Text3("YES",60,50)
-
-                Text3("NO", 90, 50)
-                }
-            }
-                if (choice == MyEnum.Yes) {
-                 arruow2 = sprites.create(img`
-                     . . . . . . a . . . . . . . . .
-                     . . . . . a 3 a . . . . . . . .
-                     . . . . a 3 3 3 a . . . . . . .
-                     . . . a 3 3 3 3 3 a . . . . . .
-                     . . . . a a 3 a a . . . . . . .
-                     . . . . . a 3 a . . . . . . . .
-                     . . . . . a 3 a . . . . . . . .
-                     . . . . . a 3 a . . . . . . . .
-                     . . . . . a a a . . . . . . . .
-                     . . . . . . . . . . . . . . . .
-                     . . . . . . . . . . . . . . . .
-                     . . . . . . . . . . . . . . . .
-                     . . . . . . . . . . . . . . . .
-                     . . . . . . . . . . . . . . . .
-                     . . . . . . . . . . . . . . . .
-                     . . . . . . . . . . . . . . . .
-                 `, SpriteKind.Player)
-arruow2.x = 65
-arruow2.y = 70
-                }
             }
         }
     //%block="Reset"
@@ -1016,16 +984,11 @@ arruow2.y = 70
         Y2 = 75
     }
     //%group="set Dialogue Text"
-    //%block="set Dialogue Bottom to $MyText || with choice $choice"
-   export function Text2(MyText: string,choice?: MyEnum): void {
+    //%block="set Dialogue Bottom to $MyText"
+   export function Text2(MyText: string): void {
         if (I2 != 4) {
             I2 += 1
-            if (choice == MyEnum.Yes) {
-                Y2 = 85
-                sg = 1 
-            }else {
                 Y2 = 75
-            }
             for (let index3 = 0; index3 <= MyText.length - 1; index3++) {
                 if (L2 > 0 && L2 % 11 == 0) {
                     X2 = 1
@@ -1081,70 +1044,9 @@ arruow2.y = 70
                 X2 += 10
                 pause(100)
             }
-            if (!choice) {
-                if (choice == MyEnum.Yes) {
-                Text3("YES",1,70)
+            }
+        }
 
-                Text3("NO", 40, 60)
-                }
-            }
-                if (choice == MyEnum.Yes) {
-                 arruow = sprites.create(img`
-                    . . . . . . . . . . . . . . . .
-                    . . . . . . . . . . . . . . . .
-                    . . . . . . . . . . . . . . . .
-                    . . . . . . . . . . . . . . . .
-                    . . . . . . . . . . . . . . . .
-                    . . . . . . . . . . . . . . . .
-                    . . . . . . . . . . . . . . . .
-                    . . . . . a a a . . . . . . . .
-                    . . . . . a 3 a . . . . . . . .
-                    . . . . . a 3 a . . . . . . . .
-                    . . . . . a 3 a . . . . . . . .
-                    . . . . a a 3 a a . . . . . . .
-                    . . . a 3 3 3 3 3 a . . . . . .
-                    . . . . a 3 3 3 a . . . . . . .
-                    . . . . . a 3 a . . . . . . . .
-                    . . . . . . a . . . . . . . . .
-                `, SpriteKind.Player)
-arruow.x = 20
-arruow.y = 60
-                }
-            }
-        }
-    
-    controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-        if (selectit === 0 && sg === 1) {
-            selectit = 1
-            arruow.x += 30
-        } else if (selectit === 1 && sg === 1) {
-            selectit = 0
-            arruow.x -= 30
-        }
-        if (selectit2 === 0 && sg2 === 1) {
-            selectit2 = 1
-            arruow2.x += 30
-        } else if (selectit2 === 1 && sg2 === 1) {
-            selectit2 = 0
-            arruow2.x -= 30
-        }
-    })
-    controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-        if (selectit === 1 && sg === 1) {
-            selectit = 0
-            arruow.x -= 30
-        } else if (selectit === 0 && sg === 1) {
-            selectit = 1
-            arruow.x += 30
-        }
-        if (selectit2 === 1 && sg2 === 1) {
-            selectit2 = 0
-            arruow2.x -= 30
-        } else if (selectit2 === 0 && sg2 === 1) {
-            selectit2 = 1
-            arruow2.x += 30
-        }
-    })
     //%group="set Dialogue Image"
     //%i.shadow=screen_image_picker
     //%block="Set Top image to $i"
@@ -1332,44 +1234,174 @@ TopImage.y = 25
                 pause(100)
             }
         }
-    }
-    //% block="On Selection 1 clicked bottom"
-    export function foo(handler: () => void) {
-        controller.A.onEvent(ControllerButtonEvent.Pressed, function() {         
-        if(selectit === 0) {
-            sprites.destroy(arruow)
-            handler();
-        }
-        })
-    }
-    //% block="On Selection 2 clicked bottom"
-    export function foo2(handler2: () => void) {
-        controller.B.onEvent(ControllerButtonEvent.Pressed, function() {
-        if (selectit === 1) {
-            sprites.destroy(arruow)
-            handler2();
-        }
-        })
-    }
-    //% block="On Selection 1 clicked top"
-    export function foo3(handler: () => void) {
-        controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-            if (selectit2 === 0) {
-                sprites.destroy(arruow2)
-                handler();
+    } 
+    function Text4(MyText: string, x: number, y: number): void {
+        if (I3 != 4) {
+            I3 += 1
+            Y3 = y
+            X3 = x
+            for (let index3 = 0; index3 <= MyText.length - 1; index3++) {
+                if (L3 > 0 && L3 % 11 == 0) {
+                    X3 = x
+                    Y3 += 10
+                    L3 = 1
+                }
+                Code = MyText.charCodeAt(index3)
+                if (Code >= 65 && Code <= 90) {
+                    S = MyText.charCodeAt(index3) - 65
+                } else if (Code >= 97 && Code <= 122) {
+                    S = MyText.charCodeAt(index3) - 67
+                }
+                F = 0
+                c = MyText.charAt(index3)
+                L3 += 1
+                if (c == " ") {
+                    X3 += 5
+                    continue;
+                } else if (c == ".") {
+                    S = 26
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
+                    continue;
+                } else if (c == "!") {
+                    S = 27
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
+                    continue;
+                } else if (c == "#") {
+                    S = 28
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
+                    continue;
+                } else if (c == "…") {
+                    S = 26
+                    for (let index = 0; index < 3; index++) {
+                        screenImage.drawTransparentImage(letters[S], X3, Y3)
+                        X3 += 7
+                    }
+                    continue;
+                } else if (c == "§") {
+                    S = 29
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
+                    continue;
+                } else if (c == "?") {
+                    S = 56
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
+                    continue;
+                }
+                screenImage.drawTransparentImage(letters[S], X3, Y3)
+                X3 += 10
+                pause(100)
             }
-        })
+        }
     }
-    //% block="On Selection 2 clicked top"
-    export function foo23(handler2: () => void) {
-        controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-            if (selectit2 === 1) {
-                sprites.destroy(arruow2)
-                handler2();
-            }
-        })
-    }
+    // block="On Selection 1 clicked bottom"
+   // export function foo(handler: () => void) {
+   //     controller.A.onEvent(ControllerButtonEvent.Pressed, function() {         
+    //    if(selectit === 0) {
+      //      sprites.destroy(arruow)
+     //       handler();
+    //    }
+    //    })
+  //  }
+    // block="On Selection 2 clicked bottom"
+  //  export function foo2(handler2: () => void) {
+ //       controller.B.onEvent(ControllerButtonEvent.Pressed, function() {
+      //  if (selectit === 1) {
+     //      sprites.destroy(arruow)
+    //        handler2();
+    //    }
+    //    })
+  //  }
+    // block="On Selection 1 clicked top"
+  //  export function foo3(handler: () => void) {
+      //  controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+       //     if (selectit2 === 0) {
+      //          sprites.destroy(arruow2)
+    //            handler();
+    //        }
+    //    })
+  //  }
+    // block="On Selection 2 clicked top"
+    //export function foo23(handler2: () => void) {
+        //controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+        //    if (selectit2 === 1) {
+        //        sprites.destroy(arruow2)
+         //       handler2();
+        //    }
+       // })
+   // }
+//%block="set choice Dialogue to $s"
+//%group="Choice"
+export function cd(s: string): void {
+    Text3(s,10,10)
+     arrow = sprites.create(img`
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . 3 a . . . . . . . . .
+        . . . . . 3 a a . . . . . . . .
+        . . . . . 3 a a a . . . . . . .
+        . . . . . 3 a a a a . . . . . .
+        . . . . . 3 a a a 3 . . . . . .
+        . . . . . 3 a a 3 . . . . . . .
+        . . . . . 3 a 3 . . . . . . . .
+        . . . . . . 3 . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+    `, SpriteKind.Player)
+arrow.y = 75
+arrow.x = 10
+sg = 1
+Text4("NO  YES",15,70)
 
 }
-
+controller.right.onEvent(ControllerButtonEvent.Pressed, function() {
+    if (sg === 1) {
+        arrow.x += 30
+        sg = 2
+    }else if (sg === 2) {
+        arrow.x -= 30
+        sg = 1
+    }
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (sg === 1) {
+        arrow.x += 30
+        sg = 2
+    } else if (sg === 2) {
+        arrow.x -= 30
+        sg = 1
+    }
+})
+//%block="on Choice Top Pressed"
+//%group="Choice"
+export function cdh(handler: () => void) {
+controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
+if (sg === 1) {
+sprites.destroy(arrow)
+handler()
+letterImage.Clear()
+sg = 0
+}
+})
+}
+    //%block="on Choice Bottom Pressed"
+    //%group="Choice"
+    export function cdh2(handler2: () => void) {
+        controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
+            if (sg === 2 && controller.A.isPressed()) {
+                sprites.destroy(arrow)
+                handler2()
+                letterImage.Clear()
+                sg = 0
+            }
+        })
+    }
+}
 
