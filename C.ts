@@ -1,8 +1,12 @@
 // Add your code here
 
-enum MyEnum {
-    //% block="Yes/No"
-    Yes,
+enum ButtonEnum {
+   A,
+   B,
+   Right,
+   Left,
+   Up,
+   Down,
 }
 let L2 = 0
 let I2 = 0
@@ -25,6 +29,7 @@ let X2 = 0
 let y = 0
 let X = 0
 let sg = 0
+let cb = ControllerButton.A
 let image2: Sprite = null
 let arrow: Sprite = null
 let letters: Image[] = []
@@ -603,7 +608,7 @@ letters = [
     `
 ]
 screenImage = image.create(160, 120)
-let mySprite = sprites.create(screenImage, SpriteKind.Player)
+let displayScreen = sprites.create(screenImage, SpriteKind.Player)
 let DownImage = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -1389,17 +1394,21 @@ sg = 0
 }
 })
 }
+
     //%block="on Choice Right Pressed"
     //%group="Choice"
     export function cdh2(handler2: () => void) {
-        controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
-            if (sg === 2 && controller.A.isPressed()) {
-                sprites.destroy(arrow)
-                handler2()
-                letterImage.Clear()
-                sg = 0
-            }
-        })
+            controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
+                if (sg === 2 && controller.A.isPressed()) {
+                    sprites.destroy(arrow)
+                    handler2()
+                    letterImage.Clear()
+                    sg = 0
+                }
+            })
     }
-}
+//block="set button to press to $e"
+//export function sb(e: ButtonEnum): void {
 
+//}
+}
