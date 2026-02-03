@@ -1411,4 +1411,11 @@ sg = 0
 //export function sb(e: ButtonEnum): void {
 
 //}
+
+//%block="Set Letter in Alphabet at $L to $I"
+//%I.shadow=screen_image_picker
+//%group="Change Letter (Starts at 0)"
+export function setLetterImageTo(L: number,I: Image): void {
+   letters[L] = I
+}
 }
