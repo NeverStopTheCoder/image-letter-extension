@@ -1165,9 +1165,25 @@ namespace letterImage {
             }
             }
         }
+    //% blockId=letterNumber__image2 block="%img"
+    //% shim=TD_ID
+    //% img.fieldEditor="sprite"
+    //% img.fieldOptions.taggedTemplate="img"
+    //% img.fieldOptions.decompileIndirectFixedInstances="true"
+    //% img.fieldOptions.decompileArgumentAsString="true"
+    //% img.fieldOptions.filter="!tile !dialog !background"
+    //% img.fieldOptions.disableResize=1
+    //% img.fieldOptions.initWidth=50
+    //% img.fieldOptions.initHeight=50
+    //% duplicateShadowOnDrag
+    //% blockHidden=1
+    export function _image2(img: Image) {
+        return img
+    }
 
     //%group="set Dialogue Image"
     //%i.shadow=screen_image_picker
+    //% i.shadow=letterNumber__image2
     //%block="Set Top image to $i"
     export function setImage(i: Image): void {
 TopImage.setImage(i)
@@ -1176,6 +1192,7 @@ TopImage.y = 25
     }
     //%group="set Dialogue Image"
     //%i.shadow=screen_image_picker
+    //% i.shadow=letterNumber__image2
     //%block="Set Down image to $i"
     export function setImage2(i: Image): void {
         DownImage.setImage(i)
@@ -1191,14 +1208,14 @@ TopImage.y = 25
     //%block="set up Press A"
     export function Press_A2(): void {
         image3 = sprites.create(img`
-        3 3 3 3 3 a f f 
-        f 3 3 3 3 a f f 
-        f 3 3 a f 3 a f 
-        f 3 3 a f 3 a f 
-        f 3 3 a f 3 a f 
-        f 3 3 3 3 3 a f 
-        3 a f f f f 3 a 
-        3 a f f f f 3 a 
+            3 3 3 3 3 a f f
+            f 3 3 3 3 a f f
+            f 3 3 a f 3 a f
+            f 3 3 a f 3 a f
+            f 3 3 a f 3 a f
+            f 3 3 3 3 3 a f
+            3 a f f f f 3 a
+            3 a f f f f 3 a
         `, SpriteKind.Player)
         image3.x = 150
         image3.y = 57
@@ -1527,9 +1544,24 @@ sg = 0
 //export function sb(e: ButtonEnum): void {
 
 //}
-
+    //% blockId=letterNumber__image block="%img"
+    //% shim=TD_ID
+    //% img.fieldEditor="sprite"
+    //% img.fieldOptions.taggedTemplate="img"
+    //% img.fieldOptions.decompileIndirectFixedInstances="true"
+    //% img.fieldOptions.decompileArgumentAsString="true"
+    //% img.fieldOptions.filter="!tile !dialog !background"
+    //% img.fieldOptions.disableResize=1
+    //% img.fieldOptions.initWidth=7
+    //% img.fieldOptions.initHeight=7
+    //% duplicateShadowOnDrag
+    //% blockHidden=1
+    export function _image(img: Image) {
+        return img
+    }
 //%block="Set Letter in Alphabet at $L to $I"
 //%I.shadow=screen_image_picker
+//% I.shadow=letterNumber__image
 //%group="Change Letter (Starts at 0)"
 export function setLetterImageTo(L: number,I: Image): void {
    letters[L] = I
