@@ -1177,6 +1177,7 @@ namespace letterImage {
     //% img.fieldOptions.initHeight=50
     //% duplicateShadowOnDrag
     //% blockHidden=1
+    //Credit is @richard on the fourums for the code here thanks
     export function _image2(img: Image) {
         return img
     }
@@ -1556,6 +1557,7 @@ sg = 0
     //% img.fieldOptions.initHeight=7
     //% duplicateShadowOnDrag
     //% blockHidden=1
+    //Credit is @richard on the fourums for the code here thanks
     export function _image(img: Image) {
         return img
     }
