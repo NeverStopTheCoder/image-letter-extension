@@ -135,14 +135,14 @@ letters = [
     f 3 3 3 a f f f 
     `,
     img`
-    3 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a 3 a f 
-    f 3 3 3 a f f 
-    f 3 3 a 3 a f 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
+        3 3 3 a f 3 a
+        3 3 3 a f 3 a
+        f 3 3 a 3 a f
+        f 3 3 3 a f f
+        f 3 3 a 3 a f
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
     `,
     img`
     3 3 3 a f f f f 
@@ -224,24 +224,24 @@ letters = [
     f 3 3 3 a f 
     `,
     img`
-    3 3 3 3 3 3 a 
-    3 3 3 a f f f 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
+        3 3 3 3 3 3 a
+        3 3 3 a f f f
+        f 3 3 a f f f
+        f 3 3 a f f f
+        f 3 3 a f f f
+        f 3 3 a f f f
+        f 3 3 a f f f
+        f 3 3 a f f f
     `,
     img`
-    3 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f f 3 3 3 a f 
+        3 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f f 3 3 3 a f
     `,
     img`
         a 3 f f f 3 a
@@ -264,44 +264,44 @@ letters = [
     f f 3 a f f 3 a 
     `,
     img`
-    3 f f f f f 3 
-    a 3 f f f 3 a 
-    f a 3 f 3 a f 
-    f f f 3 f f f 
-    f f 3 a 3 f f 
-    f 3 a f a 3 f 
-    3 a f f f a 3 
+        3 f f f f f 3
+        a 3 f f f 3 a
+        f a 3 f 3 a f
+        f f f 3 f f f
+        f f 3 a 3 f f
+        f 3 a f a 3 f
+        3 a f f f a 3
     `,
     img`
-    3 3 3 a f 3 a f 
-    f 3 3 a f 3 a f 
-    f 3 3 a f 3 a f 
-    f f 3 a 3 a f f 
-    f f f 3 a f f f 
-    f f f 3 a f f f 
-    f f 3 3 a f f f 
-    f f 3 3 a f f f 
+        3 3 3 a f 3 a f
+        f 3 3 a f 3 a f
+        f 3 3 a f 3 3 f
+        f f 3 a 3 a f f
+        f f f 3 a f f f
+        f f f 3 a f f f
+        f f 3 3 a f f f
+        f f 3 3 a f f f
     `,
     img`
-    3 3 3 3 3 3 a f 
-    f f f f f 3 a f 
-    f f f f 3 a f f 
-    f f f 3 a f f f 
-    f f 3 a f f f f 
-    f 3 a f f f f f 
-    3 3 3 3 3 3 3 a 
+        3 3 3 3 3 3 a f
+        f f f f f 3 a f
+        f f f f 3 3 f f
+        f f f 3 a f f f
+        f f 3 a f f f f
+        f 3 a f f f f f
+        3 3 3 3 3 3 3 a
     `,
     img`
-    f f f f f f f 
-    f f f f f f f 
-    f f f f f f f 
-    f f f f f f f 
-    f f f f f f f 
-    a a a a f f f 
-    a a a a f f f 
-    a a a 3 3 3 3 
-    f f f 3 3 3 3 
-    f f f 3 3 3 3 
+        f f f f f f f
+        f f f f f f f
+        f f f f f f f
+        f f f f f f f
+        f f f f f f f
+        a a a a f f f
+        a a a a f f f
+        a a a 3 3 3 3
+        f f f 3 3 3 3
+        f f f 3 3 3 3
     `,
     img`
         3 a
@@ -317,46 +317,46 @@ letters = [
         3 a
     `,
     img`
-    f a 3 f a 3 f 
-    a a 3 a a 3 a 
-    3 a 3 3 a 3 3 
-    f a 3 f a 3 f 
-    f a 3 f a 3 f 
-    3 3 3 3 3 3 3 
-    a a 3 a a 3 a 
-    f a 3 f a 3 f 
+        f a 3 f a 3 f
+        a a 3 a a 3 a
+        3 a 3 3 a 3 3
+        f a 3 f a 3 f
+        f a 3 f a 3 f
+        3 3 3 3 3 3 3
+        a a 3 a a 3 a
+        f a 3 f a 3 f
     `,
     img`
-    f 3 3 3 a f 
-    3 3 a f 3 a 
-    3 3 a f f f 
-    f 3 3 3 a f 
-    f f 3 a 3 a 
-    f 3 a f 3 a 
-    f f 3 3 3 a 
-    3 f a f 3 a 
-    3 3 a f 3 a 
-    f 3 3 3 a f 
+        f 3 3 3 a f
+        3 3 a f 3 a
+        3 3 a f f f
+        f 3 3 3 a f
+        f f 3 a 3 a
+        f 3 a f 3 a
+        f f 3 3 3 a
+        3 f a f 3 a
+        3 3 a f 3 a
+        f 3 3 3 a f
     `,
     img`
-    f 3 3 3 3 3 3 
-    f f f f f f 3 
-    f f f f f f 3 
-    f 3 3 3 3 3 3 
-    3 a f f f f 3 
-    3 a f f f f 3 
-    3 a f f f f 3 
-    f 3 3 3 3 3 3 
+        f 3 3 3 3 3 3
+        f f f f f f 3
+        f f f f f f 3
+        f 3 3 3 3 3 3
+        3 a f f f f 3
+        3 a f f f f 3
+        3 a f f f f 3
+        f 3 3 3 3 3 3
     `,
     img`
-    3 a f f f f f 
-    3 a f f f f f 
-    3 a f f f f f 
-    3 3 3 3 3 3 f 
-    3 a f f f f 3 
-    3 a f f f f 3 
-    3 a f f f f 3 
-    3 3 3 3 3 3 f 
+        3 a f f f f f
+        3 a f f f f f
+        3 a f f f f f
+        3 3 3 3 3 3 f
+        3 a f f f f 3
+        3 a f f f f 3
+        3 a f f f f 3
+        3 3 3 3 3 3 f
     `,
     img`
         f 3 3 3 3 3 3
@@ -399,14 +399,14 @@ letters = [
     f a 3 f f f 
     `,
     img`
-    f 3 3 3 3 3 3 
-    3 f f f f a 3 
-    3 f f f f a 3 
-    f 3 3 3 3 3 3 
-    f f f f f f 3 
-    f f f f f f 3 
-    f f 3 f f 3 3 
-    f f f 3 3 3 f 
+        f 3 3 3 3 3 3
+        3 f f f f a 3
+        3 f f f f a 3
+        f 3 3 3 3 3 3
+        f f f f f f 3
+        f f f f f f 3
+        f f 3 f f 3 3
+        f f f 3 3 3 f
     `,
     img`
     3 a f f f 
@@ -559,34 +559,34 @@ letters = [
         f a 3 a f
     `,
     img`
-    3 a f f f a 3 
-    3 a f 3 f a 3 
-    3 a f 3 f a 3 
-    3 a f 3 f a 3 
-    3 a f 3 f a 3 
-    3 a f 3 f a 3 
-    f 3 a 3 a 3 f 
-    f f 3 f 3 f f 
+        3 a f f f a 3
+        3 a f 3 f a 3
+        3 a f 3 f a 3
+        3 a f 3 f a 3
+        3 a f 3 f a 3
+        3 a f 3 f a 3
+        f 3 a 3 a 3 f
+        f f 3 f 3 f f
     `,
     img`
-    3 f f f f 3 
-    a 3 f f 3 a 
-    f a 3 3 a f 
-    f f 3 3 f f 
-    f f 3 3 f f 
-    f f 3 3 f f 
-    f 3 a a 3 f 
-    3 a f f a 3 
+        3 f f f f 3
+        a 3 f f 3 a
+        f a 3 3 a f
+        f f 3 3 f f
+        f f 3 3 f f
+        f f 3 3 f f
+        f 3 a a 3 f
+        3 a f f a 3
     `,
     img`
-    a 3 f 3 
-    a 3 f 3 
-    a 3 f 3 
-    f a 3 f 
-    f a 3 f 
-    f a 3 f 
-    f a 3 f 
-    f a 3 f 
+        a 3 f 3
+        a 3 f 3
+        a 3 f 3
+        f a 3 f
+        f a 3 f
+        f a 3 f
+        f a 3 f
+        f a 3 f
     `,
     img`
         3 3 3 3 3 3 a
@@ -607,6 +607,122 @@ letters = [
         3 a f
     `
 ]
+enum LetterSListNumbers {
+    //%block="A = 0"
+    A,
+    //%block="B = 1"
+    B,
+    //%block="C = 2"
+    C,
+    //%block="D = 3"
+    D,
+    //%block="E = 4"
+    E,
+    //%block="F = 5"
+    F,
+    //%block="G = 6"
+    G,
+    //%block="H = 7"
+    H,
+    //%block="I = 8"
+    I,
+    //%block="J = 9"
+    J,
+    //%block="K = 10"
+    K,
+    //%block="L = 11"
+    L,
+    //%block="M = 12"
+    M,
+    //%block="N = 13"
+    N,
+    //%block="O = 14"
+    O,
+    //%block="P = 15"
+    P,
+    //%block="Q = 16"
+    Q,
+    //%block="R = 17"
+    R,
+    //%block="S = 18"
+    S,
+    //%block="T = 19"
+    T,
+    //%block="U = 20"
+    U,
+    //%block="V = 21"
+    V,
+    //%block="W = 22"
+    W,
+    //%block="X = 23"
+    X,
+    //%block="Y = 24"
+    Y,
+    //%block="Z = 25"
+    Z,
+    //%block=". = 26"
+    dot,
+    //%block="! = 27"
+    ep,
+    //%block="# = 28"
+    ht,
+    //%block="§ = 29"
+    ss,
+    //%block="a = 30"
+    a,
+    //%block="b = 31"
+    b,
+    //%block="c = 32"
+    c,
+    //%block="d = 33"
+    d,
+    //%block="e = 34"
+    e,
+    //%block="f = 35"
+    f,
+    //%block="g = 36"
+    g,
+    //%block="h = 37"
+    h,
+    //%block="i = 38"
+    i,
+    //%block="j = 39"
+    j,
+    //%block="k = 40"
+    k,
+    //%block="l = 41"
+    l,
+    //%block="m = 42"
+    m,
+    //%block="n = 43"
+    n,
+    //%block="o = 44"
+    o,
+    //%block="p = 45"
+    p,
+    //%block="q = 46"
+    q,
+    //%block="r = 47"
+    r,
+    //%block="s = 48"
+    s,
+    //%block="t = 49"
+    t,
+    //%block="u = 50"
+    u,
+    //%block="v = 51"
+    v,
+    //%block="w = 52"
+    w,
+     //%block="x = 53"
+    x,
+    //%block="y = 54"
+    y,
+    //%block="z = 55"
+    z,
+    //%block="? = 56"
+    qm
+}
 screenImage = image.create(160, 120)
 let displayScreen = sprites.create(screenImage, SpriteKind.Player)
 let DownImage = sprites.create(img`
@@ -1417,5 +1533,10 @@ sg = 0
 //%group="Change Letter (Starts at 0)"
 export function setLetterImageTo(L: number,I: Image): void {
    letters[L] = I
+}
+//%block="Letter List $e"
+//%group="Letter List (to help with what letter is what number)"
+export function LetterList(e: LetterSListNumbers): void {
+
 }
 }
