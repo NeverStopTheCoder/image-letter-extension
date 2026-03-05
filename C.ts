@@ -605,6 +605,15 @@ letters = [
         3 a f
         f f f
         3 a f
+    `,
+    img`
+        3 3 a
+        3 3 a
+        3 3 a
+        f f f
+        3 3 a
+        3 3 a
+        3 3 a
     `
 ]
 enum LetterSListNumbers {
@@ -721,7 +730,9 @@ enum LetterSListNumbers {
     //%block="z = 55"
     z,
     //%block="? = 56"
-    qm
+    qm,
+    //%block=": = 57"
+    cm
 }
 screenImage = image.create(160, 120)
 let displayScreen = sprites.create(screenImage, SpriteKind.Player)
@@ -1083,6 +1094,11 @@ namespace letterImage {
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 10
@@ -1157,6 +1173,11 @@ namespace letterImage {
                     S = 56
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
+                    continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X += 7
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
@@ -1365,6 +1386,11 @@ TopImage.y = 25
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X += 7
+                    continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
                 X2 += 10
@@ -1426,6 +1452,11 @@ TopImage.y = 25
                     S = 56
                     screenImage.drawTransparentImage(letters[S], X3, Y3)
                     X3 += 7
+                    continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X += 7
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X3, Y3)
@@ -1630,6 +1661,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 7
                 continue;
+            } else if (c == ":") {
+                S = 57
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 7
+                continue;
             }
             screenImage.drawTransparentImage(letters[S], X, y)
             X += 10
@@ -1691,6 +1727,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     continue;
                 } else if (c == "?") {
                     S = 56
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == ":") {
+                    S = 57
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
@@ -1762,6 +1803,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X += 7
+                    continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
                 X2 += 10
@@ -1828,6 +1874,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     continue;
                 } else if (c == "?") {
                     S = 56
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == ":") {
+                    S = 57
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
