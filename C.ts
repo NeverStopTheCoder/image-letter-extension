@@ -1893,4 +1893,15 @@ export function textwxy(MyText: string,x: number,y: number): void {
             }
         }
     }
+    //%block="Set Letters in Alphabet at $n to $I"
+    //%I.shadow=screen_image_picker
+    //% I.shadow=letterNumber__image
+    //%group="Change Letter (Starts at 0)"
+    //% I.shadow="lists_create_with"
+   //% I.defl="screen_image_picker"
+    export function setLetterImageATo(n: number[], I: Image[]): void {
+        for (let i = 0; i < n.length; i++) {
+            letters[n[i]] = I[i]
+        }
+    }
 }
