@@ -605,6 +605,15 @@ letters = [
         3 a f
         f f f
         3 a f
+    `,
+    img`
+        3 3 a
+        3 3 a
+        3 3 a
+        f f f
+        3 3 a
+        3 3 a
+        3 3 a
     `
 ]
 enum LetterSListNumbers {
@@ -721,7 +730,9 @@ enum LetterSListNumbers {
     //%block="z = 55"
     z,
     //%block="? = 56"
-    qm
+    qm,
+    //%block=": = 57"
+    cm
 }
 screenImage = image.create(160, 120)
 let displayScreen = sprites.create(screenImage, SpriteKind.Player)
@@ -1083,6 +1094,11 @@ namespace letterImage {
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 10
@@ -1157,6 +1173,11 @@ namespace letterImage {
                     S = 56
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
+                    continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X += 7
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
@@ -1365,6 +1386,11 @@ TopImage.y = 25
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X += 7
+                    continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
                 X2 += 10
@@ -1426,6 +1452,11 @@ TopImage.y = 25
                     S = 56
                     screenImage.drawTransparentImage(letters[S], X3, Y3)
                     X3 += 7
+                    continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X += 7
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X3, Y3)
@@ -1573,4 +1604,293 @@ export function setLetterImageTo(L: number,I: Image): void {
 export function LetterList(e: LetterSListNumbers): void {
 
 }
+//%group="set Dialogue Text with functions"
+//%block="set Dialogue to $MyText at x $x and y $y"
+export function textwxy(MyText: string,x: number,y: number): void {
+    if (I != 4) {
+        I += 1
+        y = y
+        X = x
+        for (let index = 0; index <= MyText.length - 1; index++) {
+            if (L > 0 && L % 11 == 0) {
+                X = x
+                y += 10
+                L = 1
+            }
+            Code = MyText.charCodeAt(index)
+            if (Code >= 65 && Code <= 90) {
+                S = MyText.charCodeAt(index) - 65
+            } else if (Code >= 97 && Code <= 122) {
+                S = MyText.charCodeAt(index) - 67
+            }
+            F = 0
+            c = MyText.charAt(index)
+            L += 1
+            if (c == " ") {
+                X += 5
+                continue;
+            } else if (c == ".") {
+                S = 26
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 7
+                continue;
+            } else if (c == "!") {
+                S = 27
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 7
+                continue;
+            } else if (c == "#") {
+                S = 28
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 7
+                continue;
+            } else if (c == "…") {
+                S = 26
+                for (let index2 = 0; index2 < 3; index2++) {
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                }
+                continue;
+            } else if (c == "§") {
+                S = 29
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 7
+                continue;
+            } else if (c == "?") {
+                S = 56
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 7
+                continue;
+            } else if (c == ":") {
+                S = 57
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 7
+                continue;
+            }
+            screenImage.drawTransparentImage(letters[S], X, y)
+            X += 10
+            pause(100)
+        }
+    }
+}
+    //%group="set Dialogue Text with functions"
+    //%block="set Dialogue Top to $MyText with wait $b and wait time be $n"
+    //%n.shadow=timePicker
+    export function textwtaf(MyText: string,b: boolean,n: number): void {
+        if (I != 4) {
+            I += 1
+            y = 1
+            for (let index = 0; index <= MyText.length - 1; index++) {
+                if (L > 0 && L % 11 == 0) {
+                    X = 58
+                    y += 10
+                    L = 1
+                }
+                Code = MyText.charCodeAt(index)
+                if (Code >= 65 && Code <= 90) {
+                    S = MyText.charCodeAt(index) - 65
+                } else if (Code >= 97 && Code <= 122) {
+                    S = MyText.charCodeAt(index) - 67
+                }
+                F = 0
+                c = MyText.charAt(index)
+                L += 1
+                if (c == " ") {
+                    X += 5
+                    continue;
+                } else if (c == ".") {
+                    S = 26
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == "!") {
+                    S = 27
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == "#") {
+                    S = 28
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == "…") {
+                    S = 26
+                    for (let index2 = 0; index2 < 3; index2++) {
+                        screenImage.drawTransparentImage(letters[S], X, y)
+                        X += 7
+                    }
+                    continue;
+                } else if (c == "§") {
+                    S = 29
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == "?") {
+                    S = 56
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                }
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 10
+                if (b == false) {
+
+                }else if (b == true) {
+                    pause(n)
+                }
+            }
+        }
+    }
+    //%group="set Dialogue Text with functions"
+    //%block="set Dialogue Bottom to $MyText with wait $b and wait time be $n"
+    //%n.shadow=timePicker
+    export function textwtaf2(MyText: string, b: boolean, n: number): void {
+        if (I2 != 4) {
+            I2 += 1
+            Y2 = 75
+            for (let index3 = 0; index3 <= MyText.length - 1; index3++) {
+                if (L2 > 0 && L2 % 11 == 0) {
+                    X2 = 1
+                    Y2 += 10
+                    L2 = 1
+                }
+                Code = MyText.charCodeAt(index3)
+                if (Code >= 65 && Code <= 90) {
+                    S = MyText.charCodeAt(index3) - 65
+                } else if (Code >= 97 && Code <= 122) {
+                    S = MyText.charCodeAt(index3) - 67
+                }
+                F = 0
+                c = MyText.charAt(index3)
+                L2 += 1
+                if (c == " ") {
+                    X2 += 5
+                    continue;
+                } else if (c == ".") {
+                    S = 26
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
+                    continue;
+                } else if (c == "!") {
+                    S = 27
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
+                    continue;
+                } else if (c == "#") {
+                    S = 28
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
+                    continue;
+                } else if (c == "…") {
+                    S = 26
+                    for (let index = 0; index < 3; index++) {
+                        screenImage.drawTransparentImage(letters[S], X2, Y2)
+                        X2 += 7
+                    }
+                    continue;
+                } else if (c == "§") {
+                    S = 29
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
+                    continue;
+                } else if (c == "?") {
+                    S = 56
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
+                    continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X += 7
+                    continue;
+                }
+                screenImage.drawTransparentImage(letters[S], X2, Y2)
+                X2 += 10
+                if (b == false) {
+
+                }else if (b == true) {
+                    pause(n)
+                }
+            }
+        }
+    }
+    //%group="set Dialogue Text with functions"
+    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n"
+    //%n.shadow=timePicker
+    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean): void {
+        if (I != 4) {
+            I += 1
+            y = y
+            X = x
+            for (let index = 0; index <= MyText.length - 1; index++) {
+                if (L > 0 && L % 11 == 0) {
+                    X = x
+                    y += 10
+                    L = 1
+                }
+                Code = MyText.charCodeAt(index)
+                if (Code >= 65 && Code <= 90) {
+                    S = MyText.charCodeAt(index) - 65
+                } else if (Code >= 97 && Code <= 122) {
+                    S = MyText.charCodeAt(index) - 67
+                }
+                F = 0
+                c = MyText.charAt(index)
+                L += 1
+                if (c == " ") {
+                    X += 5
+                    continue;
+                } else if (c == ".") {
+                    S = 26
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == "!") {
+                    S = 27
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == "#") {
+                    S = 28
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == "…") {
+                    S = 26
+                    for (let index2 = 0; index2 < 3; index2++) {
+                        screenImage.drawTransparentImage(letters[S], X, y)
+                        X += 7
+                    }
+                    continue;
+                } else if (c == "§") {
+                    S = 29
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == "?") {
+                    S = 56
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == ":") {
+                    S = 57
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                }
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 10
+                if (b == false) {
+
+                } else if (b == true) {
+                    pause(n)
+                }
+            }
+        }
+    }
 }
