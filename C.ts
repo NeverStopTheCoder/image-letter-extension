@@ -1043,7 +1043,7 @@ namespace letterImage {
     export function text(MyText: string): void {
         if (I != 4) {
             I += 1
-                y = 1
+            
             for (let index = 0; index <= MyText.length - 1; index++) {
                 if (L > 0 && L % 11 == 0) {
                     X = 58
@@ -1123,7 +1123,7 @@ namespace letterImage {
    export function Text2(MyText: string): void {
         if (I2 != 4) {
             I2 += 1
-                Y2 = 75
+              
             for (let index3 = 0; index3 <= MyText.length - 1; index3++) {
                 if (L2 > 0 && L2 % 11 == 0) {
                     X2 = 1
@@ -1301,14 +1301,14 @@ TopImage.y = 25
     //%group="Dialogue Functions"
     //%block="New Line Top"
    export function New_Line(): void {
-        X = 56
+        X = 58
         y += 10
         L = 1
     }
     //%group="Dialogue Functions"
     //%block="New Line Bottom"
     export function New_Line2(): void {
-        X2 = 56
+        X2 = 1
         Y2 += 10
         L2 = 1
     }
