@@ -1867,9 +1867,10 @@ export function textwxy(MyText: string,x: number,y: number): void {
     }
     //%group="set Dialogue Text with functions"
     //%s.defl=10
-    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n and Spacing $s"
+    //%s2.defl=10
+    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2"
     //%n.shadow=timePicker
-    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s: number): void {
+    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s?: number,s2?: number): void {
         if (I != 4) {
             I += 1
             y = y
@@ -1890,53 +1891,93 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 c = MyText.charAt(index)
                 L += 1
                 if (c == " ") {
+                    if (s) {
                     X += s - 5
+                    }else if (!s) {
+                        X += 5
+                    }
                     continue;
                 } else if (c == ".") {
                     S = 26
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += s - 3
+                    if (s) {
+                        X += s - 3
+                    } else if (!s) {
+                        X += 7
+                    }
                     continue;
                 } else if (c == "!") {
                     S = 27
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += s - 3
+                    if (s) {
+                        X += s - 3
+                    } else if (!s) {
+                        X += 7
+                    }
                     continue;
                 } else if (c == "#") {
                     S = 28
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += s - 3
+                    if (s) {
+                        X += s - 3
+                    } else if (!s) {
+                        X += 7
+                    }
                     continue;
                 } else if (c == "…") {
                     S = 26
                     for (let index2 = 0; index2 < 3; index2++) {
                         screenImage.drawTransparentImage(letters[S], X, y)
-                        X += s - 3
+                        if (s) {
+                            X += s - 3
+                        } else if (!s) {
+                            X += 7
+                        }
                     }
                     continue;
                 } else if (c == "§") {
                     S = 29
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += s - 3
+                    if (s) {
+                        X += s - 3
+                    } else if (!s) {
+                        X += 7
+                    }
                     continue;
                 } else if (c == "?") {
                     S = 56
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += s - 3
+                    if (s) {
+                        X += s - 3
+                    } else if (!s) {
+                        X += 7
+                    }
                     continue;
                 } else if (c == ":") {
                     S = 57
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += s - 3
+                    if (s) {
+                        X += s - 3
+                    } else if (!s) {
+                        X += 7
+                    }
                     continue;
                 } else if (c == "1") {
                     S = 58
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += s - 3
+                    if (s) {
+                        X += s - 3
+                    } else if (!s) {
+                        X += 7
+                    }
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
-                X += s
+                if (s2) {
+                    X += s2
+                } else if (!s2) {
+                    X += 10
+                }
                 if (b == false) {
 
                 } else if (b == true) {
