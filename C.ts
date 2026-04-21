@@ -1891,9 +1891,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 c = MyText.charAt(index)
                 L += 1
                 if (c == " ") {
-                    if (s) {
-                    X += s - 5
-                    }else if (!s) {
+                    if (s2) {
+                    X += s2 
+                    }else if (!s2) {
                         X += 5
                     }
                     continue;
@@ -1973,9 +1973,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
-                if (s2) {
-                    X += s2
-                } else if (!s2) {
+                if (s) {
+                    X += s
+                } else if (!s) {
                     X += 10
                 }
                 if (b == false) {
