@@ -1866,9 +1866,10 @@ export function textwxy(MyText: string,x: number,y: number): void {
         }
     }
     //%group="set Dialogue Text with functions"
-    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n"
+    //%s.defl=10
+    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n and Spacing $s"
     //%n.shadow=timePicker
-    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean): void {
+    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s: number): void {
         if (I != 4) {
             I += 1
             y = y
@@ -1889,53 +1890,53 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 c = MyText.charAt(index)
                 L += 1
                 if (c == " ") {
-                    X += 5
+                    X += s - 5
                     continue;
                 } else if (c == ".") {
                     S = 26
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    X += s - 3
                     continue;
                 } else if (c == "!") {
                     S = 27
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    X += s - 3
                     continue;
                 } else if (c == "#") {
                     S = 28
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    X += s - 3
                     continue;
                 } else if (c == "…") {
                     S = 26
                     for (let index2 = 0; index2 < 3; index2++) {
                         screenImage.drawTransparentImage(letters[S], X, y)
-                        X += 7
+                        X += s - 3
                     }
                     continue;
                 } else if (c == "§") {
                     S = 29
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    X += s - 3
                     continue;
                 } else if (c == "?") {
                     S = 56
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    X += s - 3
                     continue;
                 } else if (c == ":") {
                     S = 57
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    X += s - 3
                     continue;
                 } else if (c == "1") {
                     S = 58
                     screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    X += s - 3
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
-                X += 10
+                X += s
                 if (b == false) {
 
                 } else if (b == true) {
@@ -1955,4 +1956,5 @@ export function textwxy(MyText: string,x: number,y: number): void {
             letters[n[i]] = I[i]
         }
     }
+    
 }
