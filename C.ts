@@ -1868,15 +1868,16 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%group="set Dialogue Text with functions"
     //%s.defl=10
     //%s2.defl=10
-    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2"
+    //l.defl=11
+    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2 and length $l"
     //%n.shadow=timePicker
-    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s?: number,s2?: number): void {
+    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s?: number,s2?: number,l?: number): void {
         if (I != 4) {
             I += 1
             y = y
             X = x
             for (let index = 0; index <= MyText.length - 1; index++) {
-                if (L > 0 && L % 11 == 0) {
+                if (L > 0 && L % l == 0) {
                     X = x
                     y += 10
                     L = 1
