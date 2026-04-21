@@ -1283,7 +1283,7 @@ namespace letterImage {
                     X += 7
                     continue;
                 } else if (c == "÷") {
-                    S = 70
+                    S = 71
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
@@ -2166,7 +2166,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 X += 7
                 continue;
             } else if (c == "÷") {
-                S = 70
+                S = 71
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 7
                 continue;
@@ -2305,7 +2305,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     X += 7
                     continue;
                 } else if (c == "÷") {
-                    S = 70
+                    S = 71
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
@@ -2679,7 +2679,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     }
                     continue;
                 } else if (c == "÷") {
-                    S = 70
+                    S = 71
                     screenImage.drawTransparentImage(letters[S], X, y)
                     if (s) {
                         X += s - 3
