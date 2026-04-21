@@ -2,8 +2,7 @@
     "name": "Image Letter Extension",
     "description": "",
     "dependencies": {
-        "device": "*",
-        "Stats": "github:UnsignedArduino/Stats#758e35856bd5565e5d0e25c95cccfac79b7fc168"
+        "device": "*"
     },
     "files": [
         "main.blocks",
