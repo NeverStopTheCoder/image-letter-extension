@@ -849,7 +849,7 @@ enum LetterSListNumbers {
     v,
     //%block="w = 52"
     w,
-     //%block="x = 53"
+     //%block="x= 53"
     x,
     //%block="y = 54"
     y,
@@ -883,7 +883,7 @@ enum LetterSListNumbers {
     plus,
     //%block="- = 69"
     minus,
-    //%block"* = 70"
+    //%block="* = 70"
     times,
     //%block="÷ = 71"
     divisiondivision
