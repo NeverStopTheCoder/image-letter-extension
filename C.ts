@@ -695,6 +695,15 @@ letters = [
         . . . a 3 . .
         . . . a 3 . .
         . . . a 3 . .
+    `,
+    img`
+        . . 3 3 3 . .
+        . 3 a a a 3 .
+        . 3 . . a 3 .
+        . 3 . . a 3 .
+        . 3 . . a 3 .
+        . 3 . . a 3 .
+        . . 3 3 3 . .
     `
 ]
 enum LetterSListNumbers {
@@ -831,7 +840,9 @@ enum LetterSListNumbers {
     //%block="8 = 65"
     eight,
     //%block="9 = 66"
-    nine
+    nine,
+    //%block="0 = 67"
+    zero
 }
 screenImage = image.create(160, 120)
 let displayScreen = sprites.create(screenImage, SpriteKind.Player)
@@ -1207,6 +1218,11 @@ namespace letterImage {
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
+                } else if (c == "0") {
+                    S = 67
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 10
@@ -1285,52 +1301,57 @@ namespace letterImage {
                 } else if (c == ":") {
                     S = 57
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "1") {
                     S = 58
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "2") {
                     S = 59
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "3") {
                     S = 60
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "4") {
                     S = 61
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "5") {
                     S = 62
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "6") {
                     S = 63
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "7") {
                     S = 64
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "8") {
                     S = 65
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "9") {
                     S = 66
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
+                    continue;
+                } else if (c == "0") {
+                    S = 67
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
@@ -1578,52 +1599,57 @@ TopImage.y = 25
                 } else if (c == ":") {
                     S = 57
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "1") {
                     S = 58
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "2") {
                     S = 59
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "3") {
                     S = 60
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "4") {
                     S = 61
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "5") {
                     S = 62
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "6") {
                     S = 63
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "7") {
                     S = 64
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "8") {
                     S = 65
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "9") {
                     S = 66
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
+                    continue;
+                } else if (c == "0") {
+                    S = 67
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
@@ -1690,52 +1716,57 @@ TopImage.y = 25
                 } else if (c == ":") {
                     S = 57
                     screenImage.drawTransparentImage(letters[S], X3, Y3)
-                    X += 7
+                    X3 += 7
                     continue;
                 } else if (c == "1") {
                     S = 58
-                    screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
                     continue;
                 } else if (c == "2") {
                     S = 59
-                    screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
                     continue;
                 } else if (c == "3") {
                     S = 60
-                    screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
                     continue;
                 } else if (c == "4") {
                     S = 61
-                    screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
                     continue;
                 } else if (c == "5") {
                     S = 62
-                    screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
                     continue;
                 } else if (c == "6") {
                     S = 63
-                    screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
                     continue;
                 } else if (c == "7") {
                     S = 64
-                    screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
                     continue;
                 } else if (c == "8") {
                     S = 65
-                    screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
                     continue;
                 } else if (c == "9") {
                     S = 66
-                    screenImage.drawTransparentImage(letters[S], X, y)
-                    X += 7
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
+                    continue;
+                } else if (c == "0") {
+                    S = 67
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X3, Y3)
@@ -1990,6 +2021,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 7
                 continue;
+            } else if (c == "0") {
+                S = 67
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 7
+                continue;
             }
             screenImage.drawTransparentImage(letters[S], X, y)
             X += 10
@@ -2104,6 +2140,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
+                } else if (c == "0") {
+                    S = 67
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 10
@@ -2175,52 +2216,57 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 } else if (c == ":") {
                     S = 57
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "1") {
                     S = 58
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "2") {
                     S = 59
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "3") {
                     S = 60
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "4") {
                     S = 61
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "5") {
                     S = 62
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "6") {
                     S = 63
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "7") {
                     S = 64
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "8") {
                     S = 65
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
                     continue;
                 } else if (c == "9") {
                     S = 66
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
-                    X += 7
+                    X2 += 7
+                    continue;
+                } else if (c == "0") {
+                    S = 67
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
                     continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
@@ -2405,6 +2451,15 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     continue;
                 } else if (c == "9") {
                     S = 66
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    if (s) {
+                        X += s - 3
+                    } else if (!s) {
+                        X += 7
+                    }
+                    continue;
+                } else if (c == "0") {
+                    S = 67
                     screenImage.drawTransparentImage(letters[S], X, y)
                     if (s) {
                         X += s - 3
