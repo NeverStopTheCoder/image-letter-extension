@@ -33,6 +33,8 @@ let cb = ControllerButton.A
 let image2: Sprite = null
 let arrow: Sprite = null
 let letters: Image[] = []
+let textCancelled = false
+let dialogRunId = 0
 letters = [
     img`
         3 3 3 3 3 a f f
@@ -1170,10 +1172,14 @@ namespace letterImage {
     //%group="set Dialogue Text"
     //%block="set Dialogue Top to $MyText"
     export function text(MyText: string): void {
+        textCancelled = false;
+        let myRunId = ++dialogRunId;
         if (I != 4) {
             I += 1
             
             for (let index = 0; index <= MyText.length - 1; index++) {
+                if (textCancelled || myRunId !== dialogRunId)
+                    return;
                 if (L > 0 && L % 11 == 0) {
                     X = 58
                     y += 10
@@ -1312,6 +1318,8 @@ namespace letterImage {
         }
     //%block="Reset"
     export function Reset(): void {
+        textCancelled = true;
+        dialogRunId++;
         Go = 4
         I = 0
         L = 0
@@ -1321,14 +1329,19 @@ namespace letterImage {
         y = 1
         X2 = 1
         Y2 = 75
+
     }
     //%group="set Dialogue Text"
     //%block="set Dialogue Bottom to $MyText"
    export function Text2(MyText: string): void {
+       textCancelled = false;
+       let myRunId = ++dialogRunId;
         if (I2 != 4) {
             I2 += 1
               
             for (let index3 = 0; index3 <= MyText.length - 1; index3++) {
+                if (textCancelled || myRunId !== dialogRunId)
+                    return;
                 if (L2 > 0 && L2 % 11 == 0) {
                     X2 = 1
                     Y2 += 10
@@ -1647,11 +1660,15 @@ TopImage.y = 25
     }
     }
     function Text3(MyText: string,x: number, y: number): void {
+        textCancelled = false;
+        let myRunId = ++dialogRunId;
         if (I2 != 4) {
             I2 += 1
                 Y2 = y
                 X2 = x
             for (let index3 = 0; index3 <= MyText.length - 1; index3++) {
+                if (textCancelled || myRunId !== dialogRunId)
+                    return;
                 if (L2 > 0 && L2 % 11 == 0) {
                     X2 = x
                     Y2 += 10
@@ -1789,11 +1806,15 @@ TopImage.y = 25
         }
     } 
     function Text4(MyText: string, x: number, y: number): void {
+        textCancelled = false;
+        let myRunId = ++dialogRunId;
         if (I3 != 4) {
             I3 += 1
             Y3 = y
             X3 = x
             for (let index3 = 0; index3 <= MyText.length - 1; index3++) {
+                if (textCancelled || myRunId !== dialogRunId)
+                    return;
                 if (L3 > 0 && L3 % 11 == 0) {
                     X3 = x
                     Y3 += 10
@@ -2015,8 +2036,8 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 //%block="on Choice Left Pressed"
 //%group="Choice"
 export function cdh(handler: () => void) {
-controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
-if (sg === 1) {
+controller.B.onEvent(ControllerButtonEvent.Pressed, function() {
+if (sg === 1 && controller.B.isPressed()) {
 sprites.destroy(arrow)
 handler()
 letterImage.Clear()
@@ -2072,11 +2093,15 @@ export function LetterList(e: LetterSListNumbers): void {
 //%group="set Dialogue Text with functions"
 //%block="set Dialogue to $MyText at x $x and y $y"
 export function textwxy(MyText: string,x: number,y: number): void {
+    textCancelled = false;
+    let myRunId = ++dialogRunId;
     if (I != 4) {
         I += 1
         y = y
         X = x
         for (let index = 0; index <= MyText.length - 1; index++) {
+            if (textCancelled || myRunId !== dialogRunId)
+                return;
             if (L > 0 && L % 11 == 0) {
                 X = x
                 y += 10
@@ -2217,10 +2242,14 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%block="set Dialogue Top to $MyText with wait $b and wait time be $n"
     //%n.shadow=timePicker
     export function textwtaf(MyText: string,b: boolean,n: number): void {
+        textCancelled = false;
+        let myRunId = ++dialogRunId;
         if (I != 4) {
             I += 1
             y = 1
             for (let index = 0; index <= MyText.length - 1; index++) {
+                if (textCancelled || myRunId !== dialogRunId)
+                    return;
                 if (L > 0 && L % 11 == 0) {
                     X = 58
                     y += 10
@@ -2365,10 +2394,14 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%block="set Dialogue Bottom to $MyText with wait $b and wait time be $n"
     //%n.shadow=timePicker
     export function textwtaf2(MyText: string, b: boolean, n: number): void {
+        textCancelled = false;
+        let myRunId = ++dialogRunId;
         if (I2 != 4) {
             I2 += 1
             Y2 = 75
             for (let index3 = 0; index3 <= MyText.length - 1; index3++) {
+                if (textCancelled || myRunId !== dialogRunId)
+                    return;
                 if (L2 > 0 && L2 % 11 == 0) {
                     X2 = 1
                     Y2 += 10
@@ -2516,15 +2549,19 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2 and length $l"
     //%n.shadow=timePicker
     export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s?: number,s2?: number,l?: number): void {
+        textCancelled = false;
+        let myRunId = ++dialogRunId;
         if (I != 4) {
             I += 1
             y = y
             X = x
             for (let index = 0; index <= MyText.length - 1; index++) {
+                if (textCancelled || myRunId !== dialogRunId)
+                    return;
                 if (L > 0 && L % l == 0) {
                     X = x
                     y += 10
-                    L = 1
+                    L = 1 
                 }
                 Code = MyText.charCodeAt(index)
                 if (Code >= 65 && Code <= 90) {
