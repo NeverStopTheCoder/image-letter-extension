@@ -2545,10 +2545,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%group="set Dialogue Text with functions"
     //%s.defl=10
     //%s2.defl=10
-    //l.defl=11
-    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2 and length $l"
+    //%l.defl=11
+    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2 and length $l and play sound $s3 on every letter printed"
     //%n.shadow=timePicker
-    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s?: number,s2?: number,l?: number): void {
+    //%s3.shadow=soundExpression_createSoundEffect
+    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s?: number,s2?: number,l?: number,s3?:music.SoundEffect): void {
         textCancelled = false;
         let myRunId = ++dialogRunId;
         if (I != 4) {
@@ -2790,6 +2791,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
 
                 } else if (b == true) {
                     pause(n)
+                }
+                if (s3) {
+                music.play(s3,music.PlaybackMode.InBackground)
+                }else if (!s3) {
+
                 }
             }
         }
