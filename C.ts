@@ -8,6 +8,12 @@ enum ButtonEnum {
    Up,
    Down,
 }
+enum PlayType {
+//%block="Play"
+    Play,
+//%block="Dont Play"
+    Dont
+}
 let L2 = 0
 let I2 = 0
 let I3 = 0
@@ -2546,10 +2552,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%s.defl=10
     //%s2.defl=10
     //%l.defl=11
-    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2 and length $l and play sound $s3 on every letter printed"
+    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2 and length $l and play sound $s3 and Play $s4"
     //%n.shadow=timePicker
     //%s3.shadow=soundExpression_createSoundEffect
-    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s?: number,s2?: number,l?: number,s3?:music.SoundEffect): void {
+    //%s4.shadow=music_song_field_editor
+    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s?: number,s2?: number,l?: number,s3?:music.SoundEffect,s4?:music.Playable): void {
         textCancelled = false;
         let myRunId = ++dialogRunId;
         if (I != 4) {
@@ -2792,10 +2799,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 } else if (b == true) {
                     pause(n)
                 }
+                
                 if (s3) {
-                music.play(s3,music.PlaybackMode.InBackground)
-                }else if (!s3) {
-
+                music.play(s3, music.PlaybackMode.InBackground)
+                } if (s4) {
+                music.play(s4,music.PlaybackMode.InBackground)
                 }
             }
         }
