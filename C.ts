@@ -1,5 +1,7 @@
 // Add your code here
-
+namespace SpriteKind {
+   export const LetterImageImage = SpriteKind.create()
+}
 enum ButtonEnum {
    A,
    B,
@@ -1523,7 +1525,7 @@ namespace letterImage {
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
-`, SpriteKind.Player)
+`, SpriteKind.LetterImageImage)
 TopImage.setImage(i)
 TopImage.x = 27
 TopImage.y = 25
@@ -1550,7 +1552,7 @@ TopImage.y = 25
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
-`, SpriteKind.Player)
+`, SpriteKind.LetterImageImage)
         DownImage.setImage(i)
         DownImage.x = 133
         DownImage.y = 97
@@ -2819,5 +2821,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
             letters[n[i]] = I[i]
         }
     }
-    
+    //%block="Take Down Images"
+    //%group="Dialogue Functions"
+    export function TakeDownLetterImages(): void { 
+        sprites.destroyAllSpritesOfKind(SpriteKind.LetterImageImage)
+    }
 }
