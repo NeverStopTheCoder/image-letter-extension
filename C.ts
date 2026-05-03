@@ -2826,4 +2826,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
     export function TakeDownLetterImages(): void { 
         sprites.destroyAllSpritesOfKind(SpriteKind.LetterImageImage)
     }
+    //%block="Get Letter Image at $n"
+    //%group="Change Letter (Starts at 0)"
+    export function LetterImageAt(n: number): Image {
+        return letters[n]
+    }
 }
