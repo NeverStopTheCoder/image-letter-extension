@@ -2630,11 +2630,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%s.defl=10
     //%s2.defl=10
     //%l.defl=11
-    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2 and length $l and play sound $s3 and Play $s4"
+    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2 and length $l and play sound $s3 and $e and Play $s4 and $e2"
     //%n.shadow=timePicker
     //%s3.shadow=soundExpression_createSoundEffect
     //%s4.shadow=music_song_field_editor
-    export function textwxyawt(MyText: string, x: number, y: number,n: number,b: boolean,s?: number,s2?: number,l?: number,s3?:music.SoundEffect,s4?:music.Playable): void {
+    export function textwxyawt(MyText: string, x: number, y: number, n: number, b: boolean, s?: number, s2?: number, l?: number, s3?: music.SoundEffect,e?:PlayType,s4?:music.Playable,e2?:PlayType): void {
         textCancelled = false;
         let myRunId = ++dialogRunId;
         if (I != 4) {
@@ -2876,12 +2876,29 @@ export function textwxy(MyText: string,x: number,y: number): void {
 
                 } else if (b == true) {
                     pause(n)
-                }
-                
+                } 
+
+                // --- SOUND 1 BLOCK ---
+                let shouldPlayS1 = false;
                 if (s3) {
-                music.play(s3, music.PlaybackMode.InBackground)
-                } if (s4) {
-                music.play(s4,music.PlaybackMode.InBackground)
+                    if (e == undefined || e == PlayType.Play) {
+                        shouldPlayS1 = true;
+                    }
+                }
+                // --- SOUND 2 BLOCK ---
+                let shouldPlayS2 = false;
+                if (s4) {
+                    if (e2 == undefined || e2 == PlayType.Play) {
+                        shouldPlayS2 = true;
+                    }
+                }
+                // --- EXECUTION ---
+                if (shouldPlayS1) {
+                    music.play(s3, music.PlaybackMode.InBackground);
+                }
+
+                if (shouldPlayS2) {
+                    music.play(s4, music.PlaybackMode.InBackground);
                 }
             }
         }
