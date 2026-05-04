@@ -41,6 +41,7 @@ let cb = ControllerButton.A
 let image2: Sprite = null
 let arrow: Sprite = null
 let letters: Image[] = []
+let LetterText: string[] = []
 let textCancelled = false
 let dialogRunId = 0
 letters = [
@@ -909,6 +910,81 @@ enum LetterSListNumbers {
     //%block="= = 72"
     equals
 }
+ LetterText = [
+     "A",
+     "B",
+     "C",
+     "D",
+     "E",
+     "F",
+     "G",
+     "H",
+     "I",
+     "J",
+     "K",
+     "L",
+     "M",
+     "N",
+     "O",
+     "P",
+     "Q",
+     "R",
+     "S",
+     "T",
+     "U",
+     "V",
+     "W",
+     "X",
+     "Y",
+     "Z",
+     ".",
+     "!",
+     "#",
+     "§",
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g",
+     "h",
+     "i",
+     "j",
+     "k",
+     "l",
+     "m",
+     "n",
+     "o",
+     "p",
+     "q",
+     "r",
+     "s",
+     "t",
+     "u",
+     "v",
+     "w",
+     "x",
+     "y",
+     "z",
+     "?",
+     ":",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "0",
+     "+",
+     "-",
+     "*",
+     "÷",
+     "=",
+ ]
 screenImage = image.create(160, 120)
 let displayScreen = sprites.create(screenImage, SpriteKind.Player)
 //%block="Letter Image"
@@ -2827,8 +2903,23 @@ export function textwxy(MyText: string,x: number,y: number): void {
         sprites.destroyAllSpritesOfKind(SpriteKind.LetterImageImage)
     }
     //%block="Get Letter Image at $n"
-    //%group="Change Letter (Starts at 0)"
+    //%group="Values"
     export function LetterImageAt(n: number): Image {
         return letters[n]
+    }
+    //%block="Get Letter at $n"
+    //%group="Values"
+    export function LetterAt(n: number): string {
+        return LetterText[n]
+    }
+    //%block="Get Letter Image Width at $n"
+    //%group="Values"
+    export function LetterWidthAt(n: number): number {
+        return letters[n].width
+    }
+    //%block="Get Letter Image Height at $n"
+    //%group="Values"
+    export function LetterHeightAt(n: number): number {
+        return letters[n].height
     }
 }
