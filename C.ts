@@ -86,14 +86,14 @@ letters = [
     f 3 3 3 3 a f 
     `,
     img`
-    3 3 3 3 3 3 a 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
-    f 3 3 3 3 a f 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
-    f 3 3 3 3 3 a 
+        3 3 3 3 3 3 a
+        f 3 3 a f f f
+        f 3 3 a f f f
+        f 3 3 3 3 a f
+        f 3 3 a f f f
+        f 3 3 a f f f
+        f 3 3 a f f f
+        f 3 3 3 3 3 a
     `,
     img`
     3 3 3 3 3 3 3 
@@ -116,34 +116,34 @@ letters = [
     f 3 3 3 a f 
     `,
     img`
-    3 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 3 3 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
+        3 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 3 3 3 a
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
     `,
     img`
-    3 3 3 3 3 3 a 
-    3 3 3 3 a f f 
-    f f 3 3 a f f 
-    f f 3 3 a f f 
-    f f 3 3 a f f 
-    f f 3 3 a f f 
-    f f 3 3 a f f 
-    f 3 3 3 3 3 a 
+        3 3 3 3 3 3 a
+        3 3 3 3 a f f
+        f f 3 3 a f f
+        f f 3 3 a f f
+        f f 3 3 a f f
+        f f 3 3 a f f
+        f f 3 3 a f f
+        f 3 3 3 3 3 a
     `,
     img`
-    3 3 3 3 3 3 3 a 
-    3 3 a 3 3 a f f 
-    f f f 3 3 a f f 
-    f f f 3 3 a f f 
-    f f f 3 3 a f f 
-    3 a f 3 3 a f f 
-    3 a f 3 3 a f f 
-    f 3 3 3 a f f f 
+        3 3 3 3 3 3 3 a
+        3 3 a 3 3 a f f
+        f f f 3 3 a f f
+        f f f 3 3 a f f
+        f f f 3 3 a f f
+        3 a f 3 3 a f f
+        3 a f 3 3 a f f
+        f 3 3 3 a f f f
     `,
     img`
         3 3 3 a f 3 a
@@ -186,53 +186,53 @@ letters = [
     f 3 3 a f f 3 a 
     `,
     img`
-    f 3 3 3 a f 
-    3 3 a f 3 a 
-    3 3 a f 3 a 
-    3 3 a f 3 a 
-    3 3 a f 3 a 
-    3 3 a f 3 a 
-    3 3 a f 3 a 
-    f 3 3 3 a f 
+        f 3 3 3 a f
+        3 3 a f 3 a
+        3 3 a f 3 a
+        3 3 a f 3 a
+        3 3 a f 3 a
+        3 3 a f 3 a
+        3 3 a f 3 a
+        f 3 3 3 a f
     `,
     img`
-    3 3 3 3 3 a f 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 3 3 a f 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
-    f 3 3 a f f f 
+        3 3 3 3 3 a f
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 3 3 a f
+        f 3 3 a f f f
+        f 3 3 a f f f
+        f 3 3 a f f f
+        f 3 3 a f f f
     `,
     img`
-    f 3 3 3 a f 
-    3 a f f 3 a 
-    3 a f f 3 a 
-    3 a f f 3 a 
-    3 a 3 a 3 a 
-    3 a f 3 a f 
-    f 3 3 f 3 a 
+        f 3 3 3 a f
+        3 a f f 3 a
+        3 a f f 3 a
+        3 a f f 3 a
+        3 a 3 a 3 a
+        3 a f 3 a f
+        f 3 3 f 3 a
     `,
     img`
-    3 3 3 3 3 a f 
-    f 3 3 a f 3 a 
-    f 3 3 a f 3 a 
-    f 3 3 3 3 3 a 
-    f 3 3 a 3 a f 
-    f 3 3 a 3 3 a 
-    f 3 3 a 3 3 a 
-    f 3 3 a 3 3 a 
+        3 3 3 3 3 a f
+        f 3 3 a f 3 a
+        f 3 3 a f 3 a
+        f 3 3 3 3 3 a
+        f 3 3 a 3 a f
+        f 3 3 a 3 3 a
+        f 3 3 a 3 3 a
+        f 3 3 a 3 3 a
     `,
     img`
-    f 3 3 3 a f 
-    3 3 a f 3 a 
-    3 3 a f f f 
-    f 3 3 3 a f 
-    f f f f 3 a 
-    3 3 a f 3 a 
-    3 3 a f 3 a 
-    f 3 3 3 a f 
+        f 3 3 3 a f
+        3 3 a f 3 a
+        3 3 a f f f
+        f 3 3 3 a f
+        f f f f 3 a
+        3 3 a f 3 a
+        3 3 a f 3 a
+        f 3 3 3 a f
     `,
     img`
         3 3 3 3 3 3 a
@@ -315,17 +315,14 @@ letters = [
         f f f 3 3 3 3
     `,
     img`
-        3 a
-        3 a
-        3 a
-        3 a
-        3 a
-        3 a
-        3 a
-        f f
-        f f
-        3 a
-        3 a
+        3 3 a
+        3 3 a
+        3 3 a
+        3 3 a
+        3 3 a
+        3 3 a
+        f f f
+        3 3 a
     `,
     img`
         f a 3 f a 3 f
@@ -609,13 +606,15 @@ letters = [
         3 3 3 3 3 3 3
     `,
     img`
-        3 3 a
-        f f 3
-        f f 3
-        3 3 a
-        3 a f
-        f f f
-        3 a f
+        3 3 3 3 a f
+        a a a f 3 a
+        f f f f 3 a
+        f f f f 3 a
+        f 3 3 3 a f
+        f 3 3 a f f
+        f a a f f f
+        f f f f f f
+        f 3 a f f f
     `,
     img`
         3 3 a
@@ -760,6 +759,16 @@ letters = [
         . 3 3 3 3 3 .
         a a a a a . .
         . . . . . . .
+    `, 
+    img`
+        f f f f f f f
+        f f f f f f f
+        f f f f f f f
+        f f f f f f f
+        f f 3 3 f f f
+        f f f 3 a f f
+        f f 3 f a f f
+        f f f a f f f
     `
 ]
 enum LetterSListNumbers {
@@ -908,7 +917,9 @@ enum LetterSListNumbers {
     //%block="÷ = 71"
     divisiondivision,
     //%block="= = 72"
-    equals
+    equals,
+    //%block=", = 73"
+    coma
 }
  LetterText = [
      "A",
@@ -984,7 +995,32 @@ enum LetterSListNumbers {
      "*",
      "÷",
      "=",
+     ","
  ]
+ //original exclamation point
+ /*
+    3 a
+    3 a
+    3 a
+    3 a
+    3 a
+    3 a
+    3 a
+    f f
+    f f
+    3 a
+    3 a
+    */
+    //original question mark
+    /*
+    3 3 a
+    f f 3
+    f f 3
+    3 3 a
+    3 a f
+    f f f
+    3 a f
+    */
 screenImage = image.create(160, 120)
 let displayScreen = sprites.create(screenImage, SpriteKind.Player)
 //%block="Letter Image"
@@ -1393,6 +1429,11 @@ namespace letterImage {
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
+                }else if (c == ",") {
+                    S = 73
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 10
@@ -1552,6 +1593,11 @@ namespace letterImage {
                     continue;
                 } else if (c == "=") {
                     S = 72
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
+                    continue;
+                } else if (c == ",") {
+                    S = 73
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
@@ -1882,6 +1928,11 @@ TopImage.y = 25
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
+                } else if (c == ",") {
+                    S = 73
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
+                    continue;
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
                 X2 += 10
@@ -2025,6 +2076,11 @@ TopImage.y = 25
                     continue;
                 } else if (c == "÷") {
                     S = 72
+                    screenImage.drawTransparentImage(letters[S], X3, Y3)
+                    X3 += 7
+                    continue;
+                } else if (c == ",") {
+                    S = 73
                     screenImage.drawTransparentImage(letters[S], X3, Y3)
                     X3 += 7
                     continue;
@@ -2315,6 +2371,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 7
                 continue;
+            } else if (c == ",") {
+                S = 73
+                screenImage.drawTransparentImage(letters[S], X, y)
+                X += 7
+                continue;
             }
             screenImage.drawTransparentImage(letters[S], X, y)
             X += 10
@@ -2460,6 +2521,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     continue;
                 } else if (c == "=") {
                     S = 72
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    X += 7
+                    continue;
+                } else if (c == ",") {
+                    S = 73
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
@@ -2612,6 +2678,11 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     continue;
                 } else if (c == "=") {
                     S = 72
+                    screenImage.drawTransparentImage(letters[S], X2, Y2)
+                    X2 += 7
+                    continue;
+                } else if (c == ",") {
+                    S = 73
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
@@ -2858,6 +2929,15 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     continue;
                 } else if (c == "=") {
                     S = 72
+                    screenImage.drawTransparentImage(letters[S], X, y)
+                    if (s) {
+                        X += s - 3
+                    } else if (!s) {
+                        X += 7
+                    }
+                    continue;
+                } else if (c == ",") {
+                    S = 73
                     screenImage.drawTransparentImage(letters[S], X, y)
                     if (s) {
                         X += s - 3
