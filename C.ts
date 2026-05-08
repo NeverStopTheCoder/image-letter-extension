@@ -5581,6 +5581,18 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 . . . f f . . . . .
                 . . . f f . . . . .
             `,
+            img`
+                . . . . . . . . . .
+                . . . . . . . . . .
+                . . . . . . . . . .
+                . . . . f f . . . .
+                . . . . f f . . . .
+                . . . . . . . . . .
+                . . . . . . . . . .
+                . . . . . . . . . .
+                . . . . f f . . . .
+                . . . . f f . . . .
+            `,
 ]
         }//else if (f == 3) {
 
