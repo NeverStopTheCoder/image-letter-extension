@@ -32,7 +32,10 @@ let c = ""
 let F = 0
 let Code = 0
 let image3: Sprite = null
+let image4: Sprite = null
+let flickerLetterValue = 0
 let Press_A = 0
+let Press_A4 = 0
 let Go = 0
 let I = 0
 let L = 0
@@ -1693,19 +1696,19 @@ TopImage.y = 25
     //%group="Dialogue Functions"
     //%block="set up Press A"
     export function Press_A2(): void {
-        image3 = sprites.create(img`
-            3 3 3 3 3 a f f
-            f 3 3 3 3 a f f
-            f 3 3 a f 3 a f
-            f 3 3 a f 3 a f
-            f 3 3 a f 3 a f
-            f 3 3 3 3 3 a f
-            3 a f f f f 3 a
-            3 a f f f f 3 a
-        `, SpriteKind.Player)
+        image3 = sprites.create(letters[0], SpriteKind.Player)
         image3.x = 150
         image3.y = 57
         Press_A = 1
+    }
+    //%group="Dialogue Functions"
+    //%block="set up Press Letter Index To $n"
+    export function Press_A5(n: number): void {
+        image4 = sprites.create(letters[n], SpriteKind.Player)
+        image4.x = 150
+        image4.y = 57
+        Press_A4 = 1
+        flickerLetterValue = n
     }
     //%group="Dialogue Functions"
     //%block="Space Top"
@@ -1749,16 +1752,31 @@ TopImage.y = 25
                 . . . . . . . . . . . . . . . .
             `)
             pause(500)
-            image3.setImage(img`
-                3 3 3 3 3 a f f
-                f 3 3 3 3 a f f
-                f 3 3 a f 3 a f
-                f 3 3 a f 3 a f
-                f 3 3 a f 3 a f
-                f 3 3 3 3 3 a f
-                3 a f f f f 3 a
-                3 a f f f f 3 a
+            image3.setImage(letters[0])
+            pause(500)
+        }
+        if (Press_A4 == 1) {
+            pause(500)
+            image4.setImage(img`
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
             `)
+            pause(500)
+            image4.setImage(letters[flickerLetterValue])
             pause(500)
         }
     })
@@ -1793,6 +1811,25 @@ TopImage.y = 25
         image3.x = 150
         image3.y = 57
         Press_A = 0
+    }
+    }
+    //%group="Dialogue Functions"
+    //%block="Take Down Press Letter Index"
+    export function Press_A6(): void {
+        for (let i = 0; i < 2; i++) {
+            image4.setImage(img`
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+            `)
+            image4.x = 150
+            image4.y = 57
+            Press_A4 = 0
     }
     }
     function Text3(MyText: string,x: number, y: number): void {
