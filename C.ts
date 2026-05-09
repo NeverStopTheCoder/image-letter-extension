@@ -53,6 +53,7 @@ let letters: Image[] = []
 let LetterText: string[] = []
 let textCancelled = false
 let dialogRunId = 0
+let AllFonts: Image[][] = []
 letters = [
     img`
         3 3 3 3 3 a f f
@@ -3031,16 +3032,21 @@ export function textwxy(MyText: string,x: number,y: number): void {
             }
         }
     }
-    //%block="Set Letters in Alphabet at $n to $I"
+    //%block="Set Letters in Alphabet at $n to $I and set Font Type to $f"
     //%I.shadow=screen_image_picker
     //% I.shadow=letterNumber__image
     //%group="Change Letter (Starts at 0)"
     //% I.shadow="lists_create_with"
    //% I.defl="screen_image_picker"
-    export function setLetterImageATo(n: number[], I: Image[]): void {
-        for (let i = 0; i < n.length; i++) {
-            letters[n[i]] = I[i]
+   //%f.shadow="addnew_enum_shim"
+    export function setLetterImageATo(n: number[], I: Image[],f: number): void {
+        if (!AllFonts[f]) {
+            AllFonts[f] = [];
         }
+        for (let i = 0; i < n.length; i++) {
+            AllFonts[f][n[i]] = I[i];
+        }
+        letters = AllFonts[f];
     }
     //%block="Take Down Images"
     //%group="Dialogue Functions"
@@ -3067,11 +3073,26 @@ export function textwxy(MyText: string,x: number,y: number): void {
     export function LetterHeightAt(n: number): number {
         return letters[n].height
     }
-    //%block="Set Letter Image Font To $f"
+    //%shim=ENUM_GET
+    //%blockId=addnew_enum_shim
+    //%block="Font $Font"
+    //%enumName="Types"
+    //%enumMemberName="Font"
+    //%enumPromptHint="Font Name"
+    //%enumInitialMembers="Default, Bold, Retro"
+    //%blockHidden=1
     //%group="Set Font"
-    export function SetLetterFontTo(f: ImageFonts): void {
-        if (f == ImageFonts.Default) {
-            letters = [
+    export function _FontEnumShim(Font: number) {
+        return Font;
+    }
+    //%block="Set Letter Image Font To $f"
+    //%blockId=Font_id
+    //%f.shadow="addnew_enum_shim"
+    //%group="Set Font"
+    export function SetLetterFontTo(f: number): void {
+        if (!AllFonts[f] || AllFonts[f].length == 0) {
+            if (f == 0) {    
+            AllFonts[0] = [
                 img`
         3 3 3 3 3 a f f
         f 3 3 3 3 a f f
@@ -3798,8 +3819,8 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     f f f a f f f
                 `
             ]
-        }else if (f == ImageFonts.Bold) {
-            letters = [
+        }else if (f == 1) {
+            AllFonts[1] = [
                 img`
                     . . f f f f f f . .
                     . f 5 5 5 5 5 5 f .
@@ -4914,7 +4935,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 `
             ]
         }else if (f == 2) {
-            letters = [
+            AllFonts[2] = [
             img`
                 . . . . . . . . . .
                 . . . . f f . . . .
@@ -5836,8 +5857,27 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 . . . . . f . . . .
             `,
 ]
-        }//else if (f == 3) {
-
-        //}
+        } else {
+        AllFonts[f] = [];
+        }
     }
+        letters = AllFonts[f];
+
+        for (let i = 0; i < 73; i++) {
+        if (AllFonts[f][i] == undefined) {
+            AllFonts[f][i] = img`
+                . . f f f . .
+                . f f . . f .
+                f f f f . . f
+                f . f f f . f
+                f . . f f f f
+                . f . . f f .
+                . . f f f . .
+            `
+        }
+        }
+    }
+    //else if (f == 3) {
+
+    //}
 }
