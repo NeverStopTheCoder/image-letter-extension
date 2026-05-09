@@ -2745,13 +2745,16 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%s2.defl=10
     //%l.defl=11
     //%s5.defl=10
-    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2 and y spacing to $s5 and length $l and play sound $s3 and $e and Play $s4 and $e2"
+    ///%sbc.shadow="colorindexpicker"
+    //%block="set Dialogue to $MyText at x $x and y $y with wait $b and wait time be $n || and Spacing $s and Space Spacing to $s2 and y spacing to $s5 and length $l and play sound $s3 and $e and Play $s4 and $e2 and Box Outline $sb and  Box Outline Color $sbc"
     //%n.shadow=timePicker
     //%s3.shadow=soundExpression_createSoundEffect
     //%s4.shadow=music_song_field_editor
-    export function textwxyawt(MyText: string, x: number, y: number, n: number, b: boolean, s?: number, s2?: number, s5?: number,l?: number, s3?: music.SoundEffect,e?:PlayType,s4?:music.Playable,e2?:PlayType): void {
+    export function textwxyawt(MyText: string, x: number, y: number, n: number, b: boolean, s?: number, s2?: number, s5?: number,l?: number, s3?: music.SoundEffect,e?:PlayType,s4?:music.Playable,e2?:PlayType,sb?:boolean,sbc?: number): void {
         textCancelled = false;
         let myRunId = ++dialogRunId;
+        let screenImage2 = image.create(160, 120)
+        let screenImageBubble = sprites.create(screenImage2, SpriteKind.Player)
         if (I != 4) {
             I += 1
             y = y
@@ -2764,7 +2767,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     if (!s5) {
                     y += 10
                     }else if (s5) {
-                        y += s5
+                    y += s5
                     }
                     L = 1 
                 }
@@ -2773,6 +2776,17 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     S = MyText.charCodeAt(index) - 65
                 } else if (Code >= 97 && Code <= 122) {
                     S = MyText.charCodeAt(index) - 67
+                }
+                if (sb == false || sb == undefined) {
+
+                } else if (sb == true) {
+                    if (sbc) {
+                    screenImageBubble.z = -100
+                    screenImage2.fillRect(X - 1, y, letters[S].width + 5, letters[S].height + 1, sbc)
+                    }else if (!sbc) {
+                    screenImageBubble.z = -100
+                    screenImage2.fillRect(X - 1, y, letters[S].width + 5, letters[S].height + 1, 1)
+                    }
                 }
                 F = 0
                 c = MyText.charAt(index)
@@ -3005,7 +3019,6 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 } else if (b == true) {
                     pause(n)
                 } 
-
                 // --- SOUND 1 BLOCK ---
                 let shouldPlayS1 = false;
                 if (s3) {
