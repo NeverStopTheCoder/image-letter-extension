@@ -2,6 +2,19 @@
 namespace SpriteKind {
    export const LetterImageImage = SpriteKind.create()
 }
+namespace FontTypes {
+    let nextKind: number
+    export function create() {
+        if (nextKind === undefined) nextKind = 1;
+        return nextKind++;
+    }
+    //%isKind
+    export const Default = SpriteKind.create();
+    //% isKind
+    export const Bold = SpriteKind.create();
+    //% isKind
+    export const Retro = SpriteKind.create();
+}
 enum ButtonEnum {
    A,
    B,
@@ -53,6 +66,7 @@ let letters: Image[] = []
 let LetterText: string[] = []
 let textCancelled = false
 let dialogRunId = 0
+let AllFonts: Image[][] = []
 letters = [
     img`
         3 3 3 3 3 a f f
@@ -3044,16 +3058,41 @@ export function textwxy(MyText: string,x: number,y: number): void {
             }
         }
     }
-    //%block="Set Letters in Alphabet at $n to $I"
+    //%blockId=Font_Types 
+    //%block="$kind"
+    //%kindNamespace=FontTypes
+    //%kindMemberName=kind
+    //%shim=KIND_GET
+    //%blockHidden=1
+    export function _FontTypes(Font: number): number {
+        return Font;
+    }
+    //%block="Set Letters in Alphabet at $n to $I and Font Type $ft"
     //%I.shadow=screen_image_picker
     //% I.shadow=letterNumber__image
     //%group="Change Letter (Starts at 0)"
     //% I.shadow="lists_create_with"
    //% I.defl="screen_image_picker"
-    export function setLetterImageATo(n: number[], I: Image[]): void {
-        for (let i = 0; i < n.length; i++) {
-            letters[n[i]] = I[i]
+   //%ft.shadow="Font_Types"
+    export function setLetterImageATo(n: number[], I: Image[],ft: number): void {
+        if (!AllFonts[ft]) AllFonts[ft] = [];
+        for (let i = 0; i < 73; i++) {
+            if (AllFonts[ft][i] == undefined) {
+                AllFonts[ft][i] = img`
+                . . f f f . .
+                . f f . . f .
+                f f f f . . f
+                f . f f f . f
+                f . . f f f f
+                . f . . f f .
+                . . f f f . .
+            `;
+            }
         }
+        for (let i = 0; i < n.length; i++) {
+            AllFonts[ft][n[i]] = I[i];
+        }
+        letters = AllFonts[ft];
     }
     //%block="Take Down Images"
     //%group="Dialogue Functions"
@@ -3082,9 +3121,10 @@ export function textwxy(MyText: string,x: number,y: number): void {
     }
     //%block="Set Letter Image Font To $f"
     //%group="Set Font"
-    export function SetLetterFontTo(f: ImageFonts): void {
-        if (f == ImageFonts.Default) {
-            letters = [
+    //%f.shadow="Font_Types"
+    export function SetLetterFontTo(f: number): void {
+        if (f == FontTypes.Default) {
+            letters = AllFonts[f] = [
                 img`
         3 3 3 3 3 a f f
         f 3 3 3 3 a f f
@@ -3811,8 +3851,8 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     f f f a f f f
                 `
             ]
-        }else if (f == ImageFonts.Bold) {
-            letters = [
+        }else if (f == FontTypes.Bold) {
+            letters = AllFonts[f] = [
                 img`
                     . . f f f f f f . .
                     . f 5 5 5 5 5 5 f .
@@ -4926,8 +4966,8 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     . . . f f . . . . .
                 `
             ]
-        }else if (f == 2) {
-            letters = [
+        }else if (f == FontTypes.Retro) {
+            letters = AllFonts[f] = [
             img`
                 . . . . . . . . . .
                 . . . . f f . . . .
@@ -5849,6 +5889,8 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 . . . . . f . . . .
             `,
 ]
+        }else {
+           letters = AllFonts[f]
         }//else if (f == 3) {
 
         //}

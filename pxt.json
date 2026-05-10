@@ -9,7 +9,9 @@
         "main.ts",
         "README.md",
         "assets.json",
-        "C.ts"
+        "C.ts",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
     ],
     "testFiles": [
         "test.ts"
