@@ -1,3 +1,3 @@
 namespace FontTypes {
-    export const FONT = FontTypes.create()
+    export const myfont = FontTypes.create()
 }

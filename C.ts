@@ -2275,12 +2275,13 @@ sg = 0
     export function _image(img: Image) {
         return img
     }
-//%block="Set Letter in Alphabet at $L to $I"
+//%block="Set Letter in Alphabet at $L to $I and Font Type $f"
 //%I.shadow=screen_image_picker
 //% I.shadow=letterNumber__image
 //%group="Change Letter (Starts at 0)"
-export function setLetterImageTo(L: number,I: Image): void {
-   letters[L] = I
+//%f.shadow="Font_Types"
+export function setLetterImageTo(L: number,I: Image,f:number): void {
+   letters[L] = AllFonts[f][L] = I
 }
 //%block="Letter List $e"
 //%group="Letter List (to help with what letter is what number)"
@@ -5890,6 +5891,20 @@ export function textwxy(MyText: string,x: number,y: number): void {
             `,
 ]
         }else {
+            if (!AllFonts[f]) AllFonts[f] = [];
+            for (let i = 0; i < 73; i++) {
+                if (AllFonts[f][i] == undefined) {
+                    AllFonts[f][i] = img`
+                . . f f f . .
+                . f f . . f .
+                f f f f . . f
+                f . f f f . f
+                f . . f f f f
+                . f . . f f .
+                . . f f f . .
+            `;
+                }
+            }
            letters = AllFonts[f]
         }//else if (f == 3) {
 
