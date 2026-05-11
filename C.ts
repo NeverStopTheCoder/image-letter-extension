@@ -796,6 +796,9 @@ letters = [
         f f f a f f f
     `
 ]
+//LetterIxdex = [
+ //   0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73
+//]
 enum LetterSListNumbers {
     //%block="A = 0"
     A,
@@ -2282,11 +2285,13 @@ sg = 0
 //% I.shadow=letterNumber__image
 //%group="Change Letter (Starts at 0)"
 //%f.shadow="Font_Types"
-export function setLetterImageTo(L: number,I: Image,f:number): void {
-   letters[L] = AllFonts[f][L] = I
+export function setLetterImageTo(L: string,I: Image,f:number): void {
+    if (!AllFonts[f]) AllFonts[f] = [];
+    let Letter = LetterText.indexOf(L)
+   letters[Letter] = AllFonts[f][Letter] = I
 }
 //%block="Letter List $e"
-//%group="Letter List (to help with what letter is what number)"
+//%group="Letter List (to help with what Index each Letter is)"
 export function LetterList(e: LetterSListNumbers): void {
 
 }
@@ -3077,8 +3082,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //% I.shadow="lists_create_with"
    //% I.defl="screen_image_picker"
    //%ft.shadow="Font_Types"
-    export function setLetterImageATo(n: number[], I: Image[],ft: number): void {
+    export function setLetterImageATo(n: string[], I: Image[],ft: number): void {
         if (!AllFonts[ft]) AllFonts[ft] = [];
+        let Letter = ""
         for (let i = 0; i < 73; i++) {
             if (AllFonts[ft][i] == undefined) {
                 AllFonts[ft][i] = img`
@@ -3093,7 +3099,8 @@ export function textwxy(MyText: string,x: number,y: number): void {
             }
         }
         for (let i = 0; i < n.length; i++) {
-            AllFonts[ft][n[i]] = I[i];
+            Letter = LetterText[i]
+            AllFonts[ft][LetterText.indexOf(Letter)] = I[i];
         }
         letters = AllFonts[ft];
     }
@@ -3122,6 +3129,13 @@ export function textwxy(MyText: string,x: number,y: number): void {
     export function LetterHeightAt(n: number): number {
         return letters[n].height
     }
+    /*
+    //%block="Get Letter Index at $n"
+    //%group="Values"
+    export function LetterIndexAt(n: number): number {
+        return LetterIxdex[n] 
+    }
+    */
     //%block="Set Letter Image Font To $f"
     //%group="Set Font"
     //%f.shadow="Font_Types"
@@ -6723,4 +6737,5 @@ export function textwxy(MyText: string,x: number,y: number): void {
         return INDEX
     }
     */
+  
 }
