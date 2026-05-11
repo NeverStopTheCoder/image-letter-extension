@@ -6388,6 +6388,257 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 f . . . . . . . . . . . f f . . .
                 f f f f f f f f f f f f f . . . .
             `,
+            img`
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . f f f f f f . . . .
+                . . . . . . f . . . . f f . . . .
+                . . . . . f . . . . f . f . . . .
+                . . . . f . . . . f . . f . . . .
+                . . . f f f f f f . . . f . . . .
+                . . . f . . . . f . . f . . . . .
+                . . . f . . . . f . f . . . . . .
+                . . . f . . . . f f . . . . . . .
+                . . . f f f f f f . . . . . . . .
+            `,
+            img`
+                . . . . . . . . f f f f f . . . .
+                . . . . . . . f . . . f f . . . .
+                . . . . . . f . . . f . f . . . .
+                . . . . . f . . . f . . f . . . .
+                . . . . f f f f f . . . f . . . .
+                . . . . f . . . f . . . f . . . .
+                . . . . f . . . f . . . f . . . .
+                . . . . f . . . f . . . f . . . .
+                . . . . f . . . f . . . f . . . .
+                . . . . f . . . f . . f f . . . .
+                . . . . f . . . f . f . f . . . .
+                . . . . f . . . f f . . f . . . .
+                . . . . f f f f f . . . f . . . .
+                . . . . f . . . f . . f . . . . .
+                . . . . f . . . f . f . . . . . .
+                . . . . f . . . f f . . . . . . .
+                . . . . f f f f f . . . . . . . .
+            `,
+            img`
+                . . . . . . f f f f f . f f f f f
+                . . . . . f . . . f f f . . . f f
+                . . . . f . . . f f f . . . f f f
+                . . . f . . . f f f . . . f f f f
+                . . f f f f f f f f f f f f f . f
+                . f f . . . . . . . . . f f . . f
+                . f . . . . . . . . . . . f . . f
+                . f . . . . . . . . . . . f . f .
+                . f . . . . . . . . . . . f f f f
+                . f f . . . f f f . . . f f f f f
+                . . f . . . f . f . . . f f f . f
+                . f f . . . f f f . . . f f . . f
+                . f . . . . . . . . . . . f . . f
+                . f . . . . . . . . . . . f . f .
+                . f . . . . . . . . . . . f f . .
+                . f f . . . f f f . . . f f . . .
+                . . f f f f f . f f f f f . . . .
+            `,
+            img`
+                . . . . . f f f f f f f f f . . .
+                . . . . f . . . . . . . . . f . .
+                . . . f . . . . . . . . . f . f .
+                . . f . . . . . . . . . f . f f .
+                . f f f f f f f f f f f . f f . .
+                f . . . . . . . . . . . f f . f .
+                f . . f f f f f f f f f f . f . f
+                . f . f f . . . . . . . . f . f f
+                f . . . f f f f f f f . f . f . f
+                f . f . . . . . . . . f . f . f .
+                f . . f f f f f f f . . f . f . f
+                . f . . . . . . . . f . f f . f f
+                . . f f f f f f . . . . f . f f .
+                . f . . . . . . f . . f . f f . .
+                f f f f f f f f f . . . f f . . .
+                f . . . . . . . . . . . f . . . .
+                . f f f f f f f f f f f . . . . .
+            `,
+            img`
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . f f f f f f f f . .
+                . . . . . . f . . . . . . f f . .
+                . . . . . f . . . . . . f . f . .
+                . . . . f . . . . . . f . . f . .
+                . . . f f f f f f f f . . . f . .
+                . . . f . . . . . . f . . . f . .
+                . . . f . . . . . . f . . . f . .
+                . . . f f f f f . . f . . . f . .
+                . . . f . . . . . . f . . . f . .
+                . . . f . . . . . . f . . f . . .
+                . . . f . . f . . . f . f . . . .
+                . . . f . . . . . . f f . . . . .
+                . . . f f f f f f f f . . . . . .
+            `,
+            img`
+                . . . . . . . f f f f f . . . . .
+                . . . . . . f . . . f f . . . . .
+                . . . . . f . . . f . f . . . . .
+                . . . . f . . . f . . f . . . . .
+                . . . f f f f f . . . f f f f f .
+                . . . f . . . f . . f . . . f f .
+                . . . f . . . f . f . . . f . f .
+                . . . f . . . f f . . . f . . f .
+                . . . f . . . f f f f f . . . f .
+                . . . f . . . . . . . f . . . f .
+                . . . f . . . . . . . f . . . f .
+                . . . f . . . . . . . f . . . f .
+                . . . f . . . f . . . f . . . f .
+                . . . f . . . . . . . f . . f . .
+                . . . f . . . . . . . f . f . . .
+                . . . f . . . . . . . f f . . . .
+                . . . f f f f f f f f f . . . . .
+            `,
+            img`
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . f f f f f f f f . .
+                . . . . . . f . . . . . . f f . .
+                . . . . . f . . . . . . f . f . .
+                . . . . f . . . . . . f . . f . .
+                . . . f f f f f f f f . . . f . .
+                . . . f . . . . . . f . . f f . .
+                . . . f . . . . . . f . f . f . .
+                . . . f . . . . . . f f . . f . .
+                . . . f . . f f f f f . . . f . .
+                . . . f . . . . . . f . . f . . .
+                . . . f . . . . . . f . f . . . .
+                . . . f . . . . . . f f . . . . .
+                . . . f f f f f f f f . . . . . .
+            `,
+            img`
+                . . . . . . . . . . f f f f f . .
+                . . . . . . . . . f . . . f f . .
+                . . . . . . . . f . . . f . f . .
+                . . . . . . . f . . . f . . f . .
+                . . . . . . f f f f f . . . f . .
+                . . . . . f f . . . f . . . f . .
+                . . . . f . f . . . f . . . f . .
+                . . . f . . f . . . f . . . f . .
+                . . f f f f f . . . f . . . f . .
+                . . f . . . . . . . f . . . f . .
+                . . f . . . . . . . f . . . f . .
+                . . f . . . . . . . f . . . f . .
+                . . f . . . f . . . f . . . f . .
+                . . f . . . . . . . f . . f . . .
+                . . f . . . . . . . f . f . . . .
+                . . f . . . . . . . f f . . . . .
+                . . f f f f f f f f f . . . . . .
+            `,
+            img`
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . . .
+                . . . . . . . f f f f f f f f . .
+                . . . . . . f . . . . . . f f . .
+                . . . . . f . . . . . . f . f . .
+                . . . . f . . . . . . f . . f . .
+                . . . f f f f f f f f . . . f . .
+                . . . f . . . . . . f . . f f . .
+                . . . f . . f . . . f . f . f . .
+                . . . f . . . . . . f f . . f . .
+                . . . f . . . . . . f . . . f . .
+                . . . f . . f f f f f . . f . . .
+                . . . f . . . . . . f . f . . . .
+                . . . f . . . . . . f f . . . . .
+                . . . f f f f f f f f . . . . . .
+            `,
+            img`
+                . . . . . . f f f f f f f f f . .
+                . . . . . f . . . . . . . f f . .
+                . . . . f . . . . . . . f . f . .
+                . . . f . . . . . . . f . . f . .
+                . . f f f f f f f f f . . . f . .
+                . . f . . . . . . . f . . f f . .
+                . . f . . . . . . . f . f . f . .
+                . . f . . . . . . . f f . . f . .
+                . . f . . . f f f f f . . . f . .
+                . . f . . . . . . . f . . f . . .
+                . . f . . . . . . . f . f . . . .
+                . . f . . . . . . . f f . . . . .
+                . . f . . . f f f f f . . . . . .
+                . . f . . . f . . f . . . . . . .
+                . . f . . . f . f . . . . . . . .
+                . . f . . . f f . . . . . . . . .
+                . . f f f f f . . . . . . . . . .
+            `,
+            img`
+                .................
+                .................
+                .................
+                .................
+                .....ffffffffff..
+                ....f........ff..
+                ...f........f.f..
+                ..f........f..f..
+                .ffffffffff...f..
+                .f........f...f..
+                .f........f...f..
+                .f........f...f..
+                .f...f....f...f..
+                .f........f...f..
+                .f........f...f..
+                .f........f...f..
+                .f........f...f..
+                .fffff....f..f...
+                .f........f.f....
+                .f........ff.....
+                .ffffffffff......
+            `,
+            img`
+                . . . . . . f f f f f . . . . . .
+                . . . . . f . . . f f . . . . . .
+                . . . . f . . . f . f . . . . . .
+                . . . f . . . f . . f . . . . . .
+                . . f f f f f . . . f f f f f . .
+                . . f . . . f . . f . . . f f . .
+                . . f . . . f . f . . . f . f . .
+                . . f . . . f f . . . f . . f . .
+                . . f . . . f f f f f . . . f . .
+                . . f . . . . . . . f . . . f . .
+                . . f . . . . . . . f . . . f . .
+                . . f . . . . . . . f . . . f . .
+                . . f . . . f . . . f . . . f . .
+                . . f . . . f . . . f . . f . . .
+                . . f . . . f . . . f . f . . . .
+                . . f . . . f . . . f f . . . . .
+                . . f f f f f f f f f . . . . . .
+            `,
+            img`
+                . . . . . . . . f f f f f . . . .
+                . . . . . . . f . . . f f . . . .
+                . . . . . . f . . . f . f . . . .
+                . . . . . f . . . f . . f . . . .
+                . . . . f f f f f . . . f . . . .
+                . . . . f . . . f . . f f . . . .
+                . . . . f . . . f . f . f . . . .
+                . . . . f . . . f f . . f . . . .
+                . . . . f f f f f . . . f . . . .
+                . . . . f . . . f . . . f . . . .
+                . . . . f . . . f . . . f . . . .
+                . . . . f . . . f . . . f . . . .
+                . . . . f . . . f . . . f . . . .
+                . . . . f . . . f . . f . . . . .
+                . . . . f . . . f . f . . . . . .
+                . . . . f . . . f f . . . . . . .
+                . . . . f f f f f . . . . . . . .
+            `,
         ]
         } else {
             if (!AllFonts[f]) AllFonts[f] = [];
@@ -6409,4 +6660,67 @@ export function textwxy(MyText: string,x: number,y: number): void {
 
         //}
     }
+    /*function GETINDEX(MyText: string): number {
+        let CodeIndex = 0
+        let INDEX = 0
+        let CurrentLetter = ""
+        for (let index = 0; index <= 0; index++) {
+        CodeIndex = MyText.charCodeAt(index)
+        if (CodeIndex >= 65 && CodeIndex <= 90) {
+            INDEX = MyText.charCodeAt(index) - 65
+        } else if (CodeIndex >= 97 && CodeIndex <= 122) {
+            INDEX = MyText.charCodeAt(index) - 67
+        }
+        CurrentLetter = MyText.charAt(index)
+         if (CurrentLetter == ".") {
+            INDEX = 26
+        } else if (CurrentLetter == "!") {
+            INDEX = 27
+        } else if (CurrentLetter == "#") {
+            INDEX = 28
+        } else if (CurrentLetter == "…") {
+            INDEX = 26
+        } else if (CurrentLetter == "§") {
+            INDEX = 29
+        } else if (CurrentLetter == "?") {
+            INDEX = 56
+        } else if (CurrentLetter == ":") {
+            INDEX = 57
+        } else if (CurrentLetter == "1") {
+            INDEX = 58
+        } else if (CurrentLetter == "2") {
+            INDEX = 59
+        } else if (CurrentLetter == "3") {
+            INDEX = 60
+        } else if (CurrentLetter == "4") {
+            INDEX = 61
+        } else if (CurrentLetter == "5") {
+            INDEX = 62
+        } else if (CurrentLetter == "6") {
+            INDEX = 63
+        } else if (CurrentLetter == "7") {
+            INDEX = 64
+        } else if (CurrentLetter == "8") {
+            INDEX = 65
+        } else if (CurrentLetter == "9") {
+            INDEX = 66
+        } else if (CurrentLetter == "0") {
+            INDEX = 67
+        } else if (CurrentLetter == "+") {
+            INDEX = 68
+        } else if (CurrentLetter == "-") {
+            INDEX = 69
+        } else if (CurrentLetter == "*") {
+            INDEX = 70
+        } else if (CurrentLetter == "÷") {
+            INDEX = 71
+        } else if (CurrentLetter == "=") {
+            INDEX = 72
+        } else if (CurrentLetter == ",") {
+            INDEX = 73
+        }
+        }
+        return INDEX
+    }
+    */
 }
