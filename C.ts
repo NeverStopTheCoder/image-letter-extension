@@ -1721,13 +1721,14 @@ TopImage.y = 25
         Press_A = 1
     }
     //%group="Dialogue Functions"
-    //%block="set up Press Letter Index To $n"
-    export function Press_A5(n: number): void {
-        image4 = sprites.create(letters[n], SpriteKind.Player)
+    //%block="set up Press Letter To $n"
+    export function Press_A5(n: string): void {
+        let Letter = LetterText.indexOf(n)
+        image4 = sprites.create(letters[Letter], SpriteKind.Player)
         image4.x = 150
         image4.y = 57
         Press_A4 = 1
-        flickerLetterValue = n
+        flickerLetterValue = Letter
     }
     //%group="Dialogue Functions"
     //%block="Space Top"
@@ -1833,7 +1834,7 @@ TopImage.y = 25
     }
     }
     //%group="Dialogue Functions"
-    //%block="Take Down Press Letter Index"
+    //%block="Take Down Press Letter"
     export function Press_A6(): void {
         for (let i = 0; i < 2; i++) {
             image4.setImage(img`
@@ -3083,7 +3084,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
    //% I.defl="screen_image_picker"
    //%ft.shadow="Font_Types"
     export function setLetterImageATo(n: string[], I: Image[],ft: number): void {
-        if (!AllFonts[ft]) AllFonts[ft] = [];
+       /* if (!AllFonts[ft]) AllFonts[ft] = [];
         let Letter = ""
         for (let i = 0; i < 73; i++) {
             if (AllFonts[ft][i] == undefined) {
@@ -3103,6 +3104,15 @@ export function textwxy(MyText: string,x: number,y: number): void {
             AllFonts[ft][LetterText.indexOf(Letter)] = I[i];
         }
         letters = AllFonts[ft];
+        */
+        if (!AllFonts[ft]) AllFonts[ft] = [];
+        let Letter = ""
+        let Letter2 = 0
+        for (let i = 0; i < n.length; i++) {
+         Letter = n[i]
+         Letter2 = LetterText.indexOf(Letter)
+        letters[Letter2] = AllFonts[ft][Letter2] = I[i]
+        }
     }
     //%block="Take Down Images"
     //%group="Dialogue Functions"
