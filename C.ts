@@ -48,9 +48,12 @@ let F = 0
 let Code = 0
 let image3: Sprite = null
 let image4: Sprite = null
+let image5: Sprite = null
 let flickerLetterValue = 0
+let flickerLetterValue2 = 0
 let Press_A = 0
 let Press_A4 = 0
+let Press_A8 = 0
 let Go = 0
 let I = 0
 let L = 0
@@ -1731,6 +1734,15 @@ TopImage.y = 25
         flickerLetterValue = Letter
     }
     //%group="Dialogue Functions"
+    //%block="set up Press Letter To $n"
+    export function Press_A7(n: number): void {
+        image5 = sprites.create(letters[n], SpriteKind.Player)
+        image5.x = 150
+        image5.y = 57
+        Press_A8 = 1
+        flickerLetterValue2 = n
+    }
+    //%group="Dialogue Functions"
     //%block="Space Top"
     export function Space(): void {
         X += 5
@@ -1799,6 +1811,30 @@ TopImage.y = 25
             image4.setImage(letters[flickerLetterValue])
             pause(500)
         }
+        if (Press_A8 == 1) {
+            pause(500)
+            image5.setImage(img`
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+            `)
+            pause(500)
+            image5.setImage(letters[flickerLetterValue2])
+            pause(500)
+        }
     })
     //%group="Dialogue Functions"
     //%block="New Line Top"
@@ -1851,6 +1887,25 @@ TopImage.y = 25
             image4.y = 57
             Press_A4 = 0
     }
+    }
+    //%group="Dialogue Functions"
+    //%block="Take Down Press Letter Index"
+    export function Press_A9(): void {
+        for (let i = 0; i < 2; i++) {
+            image5.setImage(img`
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+                . . . . . . . .
+            `)
+            image5.x = 150
+            image5.y = 57
+            Press_A8 = 0
+        }
     }
     function Text3(MyText: string,x: number, y: number): void {
         textCancelled = false;
@@ -2290,6 +2345,15 @@ export function setLetterImageTo(L: string,I: Image,f:number): void {
     if (!AllFonts[f]) AllFonts[f] = [];
     let Letter = LetterText.indexOf(L)
    letters[Letter] = AllFonts[f][Letter] = I
+}
+//%block="Set Letter in Alphabet at $L to $I and Font Type $f"
+//%I.shadow=screen_image_picker
+//% I.shadow=letterNumber__image
+//%group="Change Letter (Starts at 0)"
+//%f.shadow="Font_Types"
+export function setLetterImageTo2(L: number, I: Image, f: number): void {
+    if (!AllFonts[f]) AllFonts[f] = [];
+    letters[L] = AllFonts[f][L] = I
 }
 //%block="Letter List $e"
 //%group="Letter List (to help with what Index each Letter is)"
@@ -3114,38 +3178,74 @@ export function textwxy(MyText: string,x: number,y: number): void {
         letters[Letter2] = AllFonts[ft][Letter2] = I[i]
         }
     }
+    //%block="Set Letters in Alphabet at $n to $I and Font Type $ft"
+    //%I.shadow=screen_image_picker
+    //% I.shadow=letterNumber__image
+    //%group="Change Letter (Starts at 0)"
+    //% I.shadow="lists_create_with"
+    //% I.defl="screen_image_picker"
+    //%ft.shadow="Font_Types"
+    export function setLetterImageATo2(n: number[], I: Image[], ft: number): void {
+        if (!AllFonts[ft]) AllFonts[ft] = [];
+        for (let i = 0; i < n.length; i++) {
+            letters[i] = AllFonts[ft][i] = I[i]
+        }
+    }
     //%block="Take Down Images"
     //%group="Dialogue Functions"
     export function TakeDownLetterImages(): void { 
         sprites.destroyAllSpritesOfKind(SpriteKind.LetterImageImage)
     }
     //%block="Get Letter Image at $n"
-    //%group="Values"
-    export function LetterImageAt(n: number): Image {
+    //%group="String Values"
+    export function LetterImageAt(n: string): Image {
+        let Letter = LetterText.indexOf(n)
+        return letters[Letter]
+    }
+    //%block="Get Letter at $n"
+    //%group="String Values"
+    export function LetterAt(n: string): string {
+        let Letter = LetterText.indexOf(n)
+        return LetterText[Letter]
+    }
+    //%block="Get Letter Image Width at $n"
+    //%group="String Values"
+    export function LetterWidthAt(n: string): number {
+        let Letter = LetterText.indexOf(n)
+        return letters[Letter].width
+    }
+    //%block="Get Letter Image Height at $n"
+    //%group="String Values"
+    export function LetterHeightAt(n: string): number {
+        let Letter = LetterText.indexOf(n)
+        return letters[Letter].height
+    }
+    //%block="Get Letter Index at $n"
+    //%group="Number Values"
+    export function LetterIndexAt(n: string): number {
+        let Letter = LetterText.indexOf(n)
+        return Letter 
+    }
+      //%block="Get Letter Image at $n"
+    //%group="Number Values"
+    export function LetterImageAt2(n: number): Image {
         return letters[n]
     }
     //%block="Get Letter at $n"
-    //%group="Values"
-    export function LetterAt(n: number): string {
+    //%group="Number Values"
+    export function LetterAt2(n: number): string {
         return LetterText[n]
     }
     //%block="Get Letter Image Width at $n"
-    //%group="Values"
-    export function LetterWidthAt(n: number): number {
+    //%group="Number Values"
+    export function LetterWidthAt2(n: number): number {
         return letters[n].width
     }
     //%block="Get Letter Image Height at $n"
-    //%group="Values"
-    export function LetterHeightAt(n: number): number {
+    //%group="Number Values"
+    export function LetterHeightAt2(n: number): number {
         return letters[n].height
     }
-    /*
-    //%block="Get Letter Index at $n"
-    //%group="Values"
-    export function LetterIndexAt(n: number): number {
-        return LetterIxdex[n] 
-    }
-    */
     //%block="Set Letter Image Font To $f"
     //%group="Set Font"
     //%f.shadow="Font_Types"
