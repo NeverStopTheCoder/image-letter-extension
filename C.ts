@@ -2338,7 +2338,7 @@ sg = 0
     }
 //%block="Set Letter in Alphabet at $L to $I and Font Type $f"
 //%I.shadow=screen_image_picker
-//% I.shadow=letterNumber__image
+//%I.shadow=letterNumber__image
 //%group="Change Letter (Starts at 0)"
 //%f.shadow="Font_Types"
 export function setLetterImageTo(L: string,I: Image,f:number): void {
@@ -3198,6 +3198,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
     }
     //%block="Get Letter Image at $n"
     //%group="String Values"
+    //%f.shadow="Font_Types"
     export function LetterImageAt(n: string): Image {
         let Letter = LetterText.indexOf(n)
         return letters[Letter]
@@ -3226,8 +3227,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
         let Letter = LetterText.indexOf(n)
         return Letter 
     }
-      //%block="Get Letter Image at $n"
+    //%block="Get Letter Image at $n"
     //%group="Number Values"
+    //%f.shadow="Font_Types"
     export function LetterImageAt2(n: number): Image {
         return letters[n]
     }
@@ -3245,6 +3247,29 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%group="Number Values"
     export function LetterHeightAt2(n: number): number {
         return letters[n].height
+    }
+    //%block="If Image at $s is eqaul to $I"
+    //%group="Boolean Values"
+    //%I.shadow=screen_image_picker
+    //%I.shadow=letterNumber__image
+    //%f.shadow="Font_Types"
+    export function IfLetterImageAt(I:Image,s: number): boolean {
+        if (letters[s] == I) {
+        return true
+        }
+        return false
+    }
+    //%block="If Image at $s is eqaul to $I"
+    //%group="Boolean Values"
+    //%I.shadow=screen_image_picker
+    //%I.shadow=letterNumber__image
+    //%f.shadow="Font_Types"
+    export function IfLetterImageAt2(I: Image, s: string): boolean {
+        let Letter = LetterText.indexOf(s)
+        if (letters[Letter] == I) {
+            return true
+        }
+        return false
     }
     //%block="Set Letter Image Font To $f"
     //%group="Set Font"
