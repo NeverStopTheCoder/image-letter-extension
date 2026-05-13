@@ -3296,7 +3296,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
     export function LetterHeightAt2(n: number): number {
         return letters[n].height
     }
-    //%block="If Image at $s is eqaul to $I"
+    //%block="If Image at $s is equal to $I"
     //%group="Boolean Values"
     //%I.shadow=screen_image_picker
     //%I.shadow=letterNumber__image
@@ -3306,7 +3306,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
         }
         return false
     }
-    //%block="If Image at $s is eqaul to $I"
+    //%block="If Image at $s is equal to $I"
     //%group="Boolean Values"
     //%I.shadow=screen_image_picker
     //%I.shadow=letterNumber__image
@@ -7278,7 +7278,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
     export function SetPlayerEmotionTypeTo2(f: number): void {
         BottomPlayerEmotion = f
     }
-    //%block="If Top Emotion is eqaul to $f"
+    //%block="If Top Emotion is equal to $f"
     //%f.shadow="Emotion_Types"
     //%group="Emotion Types"
     export function IfPlayerEmotion(f: number): boolean {
@@ -7287,7 +7287,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
         }
         return false
     }
-    //%block="If Bottom Emotion is eqaul to $f"
+    //%block="If Bottom Emotion is equal to $f"
     //%f.shadow="Emotion_Types"
     //%group="Emotion Types"
     export function IfPlayerEmotion2(f: number): boolean {
