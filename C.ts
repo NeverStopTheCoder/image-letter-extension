@@ -17,6 +17,21 @@ namespace FontTypes {
     //%isKind
     export const Pixel3D = SpriteKind.create();
 }
+namespace EmotionTypes {
+    let nextKind: number
+    export function create() {
+        if (nextKind === undefined) nextKind = 1;
+        return nextKind++;
+    }
+    //%isKind
+    export const Happy = SpriteKind.create();
+    //% isKind
+    export const Sad = SpriteKind.create();
+    //%isKind
+    export const Angry = SpriteKind.create();
+    //%isKind
+    export const Confused = SpriteKind.create();
+}
 enum ButtonEnum {
    A,
    B,
@@ -37,6 +52,13 @@ enum ImageFonts {
   Retro,
  //Gothic,
 }
+/*
+enum PlayerEmotionTypes {
+ Happy,
+ Sad,
+ Angry,
+}
+*/
 let L2 = 0
 let I2 = 0
 let I3 = 0
@@ -51,6 +73,12 @@ let image4: Sprite = null
 let image5: Sprite = null
 let flickerLetterValue = 0
 let flickerLetterValue2 = 0
+let TopPalyerEmotion = 0
+let BottomPlayerEmotion = 0
+let TopText = ""
+let BottomText = ""
+let TopChangeEmotion = 0
+let BottomChangeEmotion = 0
 let Press_A = 0
 let Press_A4 = 0
 let Press_A8 = 0
@@ -1465,6 +1493,8 @@ namespace letterImage {
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
+                }else if (MyText.includes(TopText)) {
+                    TopPalyerEmotion = TopChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 10
@@ -1632,6 +1662,8 @@ namespace letterImage {
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
+                } else if (MyText.includes(BottomText)) {
+                    BottomPlayerEmotion = BottomChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
                 X2 += 10
@@ -2051,6 +2083,9 @@ TopImage.y = 25
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
+                }else if (MyText.includes(BottomText) || MyText.includes(TopText)) {
+                    TopPalyerEmotion = TopChangeEmotion
+                    BottomPlayerEmotion = BottomChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
                 X2 += 10
@@ -2202,6 +2237,9 @@ TopImage.y = 25
                     screenImage.drawTransparentImage(letters[S], X3, Y3)
                     X3 += 7
                     continue;
+                }else if (MyText.includes(BottomText) || MyText.includes(TopText)) {
+                    TopPalyerEmotion = TopChangeEmotion
+                    BottomPlayerEmotion = BottomChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X3, Y3)
                 X3 += 10
@@ -2506,6 +2544,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 7
                 continue;
+            }else if (MyText.includes(BottomText) || MyText.includes(TopText)) {
+                TopPalyerEmotion = TopChangeEmotion
+                BottomPlayerEmotion = BottomChangeEmotion
             }
             screenImage.drawTransparentImage(letters[S], X, y)
             X += 10
@@ -2659,6 +2700,8 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
+                }else if (MyText.includes(TopText)) {
+                    TopPalyerEmotion = TopChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 10
@@ -2816,6 +2859,8 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
+                }else if (MyText.includes(BottomText)) {
+                    BottomPlayerEmotion = BottomChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
                 X2 += 10
@@ -3094,6 +3139,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
                         X += 7
                     }
                     continue;
+                }else if (MyText.includes(BottomText) || MyText.includes(TopText)) {
+                    TopPalyerEmotion = TopChangeEmotion
+                    BottomPlayerEmotion = BottomChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 if (s) {
@@ -3252,7 +3300,6 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%group="Boolean Values"
     //%I.shadow=screen_image_picker
     //%I.shadow=letterNumber__image
-    //%f.shadow="Font_Types"
     export function IfLetterImageAt(I:Image,s: number): boolean {
         if (letters[s] == I) {
         return true
@@ -3263,7 +3310,6 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%group="Boolean Values"
     //%I.shadow=screen_image_picker
     //%I.shadow=letterNumber__image
-    //%f.shadow="Font_Types"
     export function IfLetterImageAt2(I: Image, s: string): boolean {
         let Letter = LetterText.indexOf(s)
         if (letters[Letter] == I) {
@@ -7211,5 +7257,57 @@ export function textwxy(MyText: string,x: number,y: number): void {
         return INDEX
     }
     */
-  
+    //%blockId=Emotion_Types 
+    //%block="$kind"
+    //%kindNamespace=EmotionTypes
+    //%kindMemberName=kind
+    //%shim=KIND_GET
+    //%blockHidden=1
+    export function _EmotionTypes(Emotion: number): number {
+        return Emotion;
+    }
+    //%block="Set Top Player Emotion Type to $f"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function SetPlayerEmotionTypeTo(f: number): void {
+        TopPalyerEmotion = f
+    }
+    //%block="Set Bottom Player Emotion Type to $f"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function SetPlayerEmotionTypeTo2(f: number): void {
+        BottomPlayerEmotion = f
+    }
+    //%block="If Top Emotion is eqaul to $f"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function IfPlayerEmotion(f: number): boolean {
+        if (TopPalyerEmotion == f) {
+            return true
+        }
+        return false
+    }
+    //%block="If Bottom Emotion is eqaul to $f"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function IfPlayerEmotion2(f: number): boolean {
+        if (TopPalyerEmotion == f) {
+            return true
+        }
+        return false
+    }
+    //%block="Change Top Emotion to $f when $s typed"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function ChangeEmotionToWhen(f: number,s:string): void {
+         TopText = s
+         TopChangeEmotion = f
+    }
+    //%block="Change Bottom Emotion to $f when $s typed"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function ChangeEmotionToWhen2(f: number, s: string): void {
+        BottomText = s
+        BottomChangeEmotion = f
+    }
 }
