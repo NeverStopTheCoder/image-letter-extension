@@ -81,12 +81,15 @@ let image4: Sprite = null
 let image5: Sprite = null
 let flickerLetterValue = 0
 let flickerLetterValue2 = 0
-let TopPalyerEmotion = 0
+let TopPlayerEmotion = 0
 let BottomPlayerEmotion = 0
+let XYPlayerEmotion = 0
 let TopText = ""
 let BottomText = ""
+let XYText = ""
 let TopChangeEmotion = 0
 let BottomChangeEmotion = 0
+let XYChangeEmotion = 0
 let Press_A = 0
 let Press_A4 = 0
 let Press_A8 = 0
@@ -108,6 +111,12 @@ let LetterText: string[] = []
 let textCancelled = false
 let dialogRunId = 0
 let AllFonts: Image[][] = []
+TopChangeEmotion = EmotionTypes.Happy
+TopPlayerEmotion = TopChangeEmotion
+BottomChangeEmotion = EmotionTypes.Happy
+BottomPlayerEmotion = BottomChangeEmotion
+XYChangeEmotion = EmotionTypes.Happy
+XYPlayerEmotion = XYChangeEmotion
 letters = [
     img`
         3 3 3 3 3 a f f
@@ -1359,11 +1368,12 @@ namespace letterImage {
     //%group="set Dialogue Text"
     //%block="set Dialogue Top to $MyText"
     export function text(MyText: string): void {
+        let CurrentText = ""
         textCancelled = false;
         let myRunId = ++dialogRunId;
         if (I != 4) {
             I += 1
-            
+
             for (let index = 0; index <= MyText.length - 1; index++) {
                 if (textCancelled || myRunId !== dialogRunId)
                     return;
@@ -1501,8 +1511,9 @@ namespace letterImage {
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
-                }else if (MyText.includes(TopText)) {
-                    TopPalyerEmotion = TopChangeEmotion
+                }CurrentText = CurrentText + c
+                if (CurrentText.includes(TopText)) {
+                TopPlayerEmotion = TopChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 10
@@ -1528,6 +1539,7 @@ namespace letterImage {
     //%group="set Dialogue Text"
     //%block="set Dialogue Bottom to $MyText"
    export function Text2(MyText: string): void {
+       let CurrentText = ""
        textCancelled = false;
        let myRunId = ++dialogRunId;
         if (I2 != 4) {
@@ -1670,7 +1682,8 @@ namespace letterImage {
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
-                } else if (MyText.includes(BottomText)) {
+                }CurrentText = CurrentText + c
+                if (CurrentText.includes(BottomText)) {
                     BottomPlayerEmotion = BottomChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
@@ -1948,6 +1961,7 @@ TopImage.y = 25
         }
     }
     function Text3(MyText: string,x: number, y: number): void {
+        let CurrentText = ""
         textCancelled = false;
         let myRunId = ++dialogRunId;
         if (I2 != 4) {
@@ -2091,9 +2105,10 @@ TopImage.y = 25
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
-                }else if (MyText.includes(BottomText) || MyText.includes(TopText)) {
-                    TopPalyerEmotion = TopChangeEmotion
+                }CurrentText = CurrentText + c
+                if (CurrentText.includes(TopText) || CurrentText.includes(BottomText)) {
                     BottomPlayerEmotion = BottomChangeEmotion
+                    TopPlayerEmotion = TopChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
                 X2 += 10
@@ -2102,6 +2117,7 @@ TopImage.y = 25
         }
     } 
     function Text4(MyText: string, x: number, y: number): void {
+        let CurrentText = ""
         textCancelled = false;
         let myRunId = ++dialogRunId;
         if (I3 != 4) {
@@ -2245,9 +2261,10 @@ TopImage.y = 25
                     screenImage.drawTransparentImage(letters[S], X3, Y3)
                     X3 += 7
                     continue;
-                }else if (MyText.includes(BottomText) || MyText.includes(TopText)) {
-                    TopPalyerEmotion = TopChangeEmotion
+                }CurrentText = CurrentText + c
+                if (CurrentText.includes(TopText) || CurrentText.includes(BottomText)) {
                     BottomPlayerEmotion = BottomChangeEmotion
+                    TopPlayerEmotion = TopChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X3, Y3)
                 X3 += 10
@@ -2409,6 +2426,7 @@ export function LetterList(e: LetterSListNumbers): void {
 //%group="set Dialogue Text with functions"
 //%block="set Dialogue to $MyText at x $x and y $y"
 export function textwxy(MyText: string,x: number,y: number): void {
+    let CurrentText = ""
     textCancelled = false;
     let myRunId = ++dialogRunId;
     if (I != 4) {
@@ -2552,9 +2570,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 7
                 continue;
-            }else if (MyText.includes(BottomText) || MyText.includes(TopText)) {
-                TopPalyerEmotion = TopChangeEmotion
-                BottomPlayerEmotion = BottomChangeEmotion
+            }CurrentText = CurrentText + c
+            if (CurrentText.includes(XYText)) {
+                XYPlayerEmotion = XYChangeEmotion
             }
             screenImage.drawTransparentImage(letters[S], X, y)
             X += 10
@@ -2566,6 +2584,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%block="set Dialogue Top to $MyText with wait $b and wait time be $n"
     //%n.shadow=timePicker
     export function textwtaf(MyText: string,b: boolean,n: number): void {
+        let CurrentText = ""
         textCancelled = false;
         let myRunId = ++dialogRunId;
         if (I != 4) {
@@ -2708,8 +2727,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     screenImage.drawTransparentImage(letters[S], X, y)
                     X += 7
                     continue;
-                }else if (MyText.includes(TopText)) {
-                    TopPalyerEmotion = TopChangeEmotion
+                }CurrentText = CurrentText + c
+                if (CurrentText.includes(TopText)) {
+                    TopPlayerEmotion = TopChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 X += 10
@@ -2725,6 +2745,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%block="set Dialogue Bottom to $MyText with wait $b and wait time be $n"
     //%n.shadow=timePicker
     export function textwtaf2(MyText: string, b: boolean, n: number): void {
+        let CurrentText = ""
         textCancelled = false;
         let myRunId = ++dialogRunId;
         if (I2 != 4) {
@@ -2867,7 +2888,8 @@ export function textwxy(MyText: string,x: number,y: number): void {
                     screenImage.drawTransparentImage(letters[S], X2, Y2)
                     X2 += 7
                     continue;
-                }else if (MyText.includes(BottomText)) {
+                }CurrentText = CurrentText + c
+                if (CurrentText.includes(BottomText)) {
                     BottomPlayerEmotion = BottomChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X2, Y2)
@@ -2891,6 +2913,7 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%s3.shadow=soundExpression_createSoundEffect
     //%s4.shadow=music_song_field_editor
     export function textwxyawt(MyText: string, x: number, y: number, n: number, b: boolean, s?: number, s2?: number, s5?: number,l?: number, s3?: music.SoundEffect,e?:PlayType,s4?:music.Playable,e2?:PlayType,sb?:boolean,sbc?: number): void {
+        let CurrentText = ""
         textCancelled = false;
         let myRunId = ++dialogRunId;
         let screenImage2 = image.create(160, 120)
@@ -3147,9 +3170,9 @@ export function textwxy(MyText: string,x: number,y: number): void {
                         X += 7
                     }
                     continue;
-                }else if (MyText.includes(BottomText) || MyText.includes(TopText)) {
-                    TopPalyerEmotion = TopChangeEmotion
-                    BottomPlayerEmotion = BottomChangeEmotion
+                } CurrentText = CurrentText + c
+                if (CurrentText.includes(XYText)) {
+                    XYPlayerEmotion = XYChangeEmotion
                 }
                 screenImage.drawTransparentImage(letters[S], X, y)
                 if (s) {
@@ -7278,7 +7301,12 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%f.shadow="Emotion_Types"
     //%group="Emotion Types"
     export function SetPlayerEmotionTypeTo(f: number): void {
-        TopPalyerEmotion = f
+        TopPlayerEmotion = f
+    }
+    //%block="Get Top Player Emotion"
+    //%group="Emotion Types"
+    export function GetPlayerEmotion(): number {
+        return TopPlayerEmotion
     }
     //%block="Set Bottom Player Emotion Type to $f"
     //%f.shadow="Emotion_Types"
@@ -7286,11 +7314,27 @@ export function textwxy(MyText: string,x: number,y: number): void {
     export function SetPlayerEmotionTypeTo2(f: number): void {
         BottomPlayerEmotion = f
     }
+    //%block="Get Bottom Player Emotion"
+    //%group="Emotion Types"
+    export function GetPlayerEmotion2(): number {
+        return BottomPlayerEmotion
+    }
+    //%block="Set X and Y Player Emotion Type to $f"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function SetPlayerEmotionTypeTo3(f: number): void {
+        XYPlayerEmotion = f
+    }
+    //%block="Get X and Y Player Emotion"
+    //%group="Emotion Types"
+    export function GetPlayerEmotion3(): number {
+        return XYPlayerEmotion
+    }
     //%block="If Top Emotion is equal to $f"
     //%f.shadow="Emotion_Types"
     //%group="Emotion Types"
     export function IfPlayerEmotion(f: number): boolean {
-        if (TopPalyerEmotion == f) {
+        if (TopPlayerEmotion == f) {
             return true
         }
         return false
@@ -7299,7 +7343,16 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%f.shadow="Emotion_Types"
     //%group="Emotion Types"
     export function IfPlayerEmotion2(f: number): boolean {
-        if (TopPalyerEmotion == f) {
+        if (BottomPlayerEmotion == f) {
+            return true
+        }
+        return false
+    }
+    //%block="If X and Y Emotion is equal to $f"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function IfPlayerEmotion3(f: number): boolean {
+        if (XYPlayerEmotion == f) {
             return true
         }
         return false
@@ -7317,5 +7370,12 @@ export function textwxy(MyText: string,x: number,y: number): void {
     export function ChangeEmotionToWhen2(f: number, s: string): void {
         BottomText = s
         BottomChangeEmotion = f
+    }
+    //%block="Change X and Y Emotion to $f when $s typed"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function ChangeEmotionToWhen3(f: number, s: string): void {
+        XYText = s
+        XYChangeEmotion = f
     }
 }
