@@ -2308,33 +2308,43 @@ TopImage.y = 25
         //    }
        // })
    // }
-//%block="set choice Dialogue to $s"
+//%block="set choice Dialogue to $s || and Option 1 $s2 and Option 2 $s3 and Arrow Image $i"
 //%group="Choice"
-export function cd(s: string): void {
+//%i.shadow=screen_image_picker
+//%i.shadow=letterNumber__image
+export function cd(s:string, s2?:string, s3?:string, i?: Image): void {
     Text3(s,10,10)
      arrow = sprites.create(img`
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . 3 a . . . . . . . . .
-        . . . . . 3 a a . . . . . . . .
-        . . . . . 3 a a a . . . . . . .
-        . . . . . 3 a a a a . . . . . .
-        . . . . . 3 a a a 3 . . . . . .
-        . . . . . 3 a a 3 . . . . . . .
-        . . . . . 3 a 3 . . . . . . . .
-        . . . . . . 3 . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-    `, SpriteKind.Player)
+         . . . . . . . . . . . . . . . .
+         . . . . . . . . . . . . . . . .
+         . . . . . . . . . . . . . . . .
+         . . . . . . . . . . . . . . . .
+         . . . . . 3 a . . . . . . . . .
+         . . . . . 3 a a . . . . . . . .
+         . . . . . 3 a a a . . . . . . .
+         . . . . . 3 a a a a . . . . . .
+         . . . . . 3 a a a 3 . . . . . .
+         . . . . . 3 a a 3 . . . . . . .
+         . . . . . 3 a 3 . . . . . . . .
+         . . . . . . 3 . . . . . . . . .
+         . . . . . . . . . . . . . . . .
+         . . . . . . . . . . . . . . . .
+         . . . . . . . . . . . . . . . .
+         . . . . . . . . . . . . . . . .
+     `, SpriteKind.Player)
 arrow.y = 75
 arrow.x = 10
 sg = 1
-Text4("NO  YES",15,70)
+if (s2 && s3) {
+Text4(s2 + "   " + s3,15,70)
+}else if (!s2 && !s3) {
+Text4("NO  YES", 15, 70)
+}
+if (i) {
+arrow.setImage(i)
+}else {
 
+}
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function() {
     if (sg === 1) {
@@ -7297,33 +7307,15 @@ export function textwxy(MyText: string,x: number,y: number): void {
     export function _EmotionTypes(Emotion: number): number {
         return Emotion;
     }
-    //%block="Set Top Player Emotion Type to $f"
-    //%f.shadow="Emotion_Types"
-    //%group="Emotion Types"
-    export function SetPlayerEmotionTypeTo(f: number): void {
-        TopPlayerEmotion = f
-    }
     //%block="Get Top Player Emotion"
     //%group="Emotion Types"
     export function GetPlayerEmotion(): number {
         return TopPlayerEmotion
     }
-    //%block="Set Bottom Player Emotion Type to $f"
-    //%f.shadow="Emotion_Types"
-    //%group="Emotion Types"
-    export function SetPlayerEmotionTypeTo2(f: number): void {
-        BottomPlayerEmotion = f
-    }
     //%block="Get Bottom Player Emotion"
     //%group="Emotion Types"
     export function GetPlayerEmotion2(): number {
         return BottomPlayerEmotion
-    }
-    //%block="Set X and Y Player Emotion Type to $f"
-    //%f.shadow="Emotion_Types"
-    //%group="Emotion Types"
-    export function SetPlayerEmotionTypeTo3(f: number): void {
-        XYPlayerEmotion = f
     }
     //%block="Get X and Y Player Emotion"
     //%group="Emotion Types"
@@ -7377,5 +7369,23 @@ export function textwxy(MyText: string,x: number,y: number): void {
     export function ChangeEmotionToWhen3(f: number, s: string): void {
         XYText = s
         XYChangeEmotion = f
+    }
+    //%block="Set Top Player Emotion Type to $f"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function SetPlayerEmotionTypeTo(f: number): void {
+        TopPlayerEmotion = f
+    }
+    //%block="Set Bottom Player Emotion Type to $f"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function SetPlayerEmotionTypeTo2(f: number): void {
+        BottomPlayerEmotion = f
+    }
+    //%block="Set X and Y Player Emotion Type to $f"
+    //%f.shadow="Emotion_Types"
+    //%group="Emotion Types"
+    export function SetPlayerEmotionTypeTo3(f: number): void {
+        XYPlayerEmotion = f
     }
 }
