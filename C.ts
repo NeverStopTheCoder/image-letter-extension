@@ -31,6 +31,14 @@ namespace EmotionTypes {
     export const Angry = SpriteKind.create();
     //%isKind
     export const Confused = SpriteKind.create();
+    //%isKind
+    export const Disappointed = SpriteKind.create();
+    //% isKind
+    export const Embarrassment = SpriteKind.create();
+    //%isKind
+    export const Fear = SpriteKind.create();
+    //%isKind
+    export const Disgust = SpriteKind.create();
 }
 enum ButtonEnum {
    A,
