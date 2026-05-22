@@ -1108,7 +1108,7 @@ namespace letterImage {
     y = 1
     X2 = 1
     Y2 = 75
-    //%block="Set up image"
+    //%block="Set up Example image"
     export function set(): void {
         let mySprite20250620T182956517Z = sprites.create(image.create(159, 121), SpriteKind.Player)
         mySprite20250620T182956517Z.setImage(img`
@@ -1521,7 +1521,7 @@ namespace letterImage {
             }
             }
         }
-    //%block="Reset"
+    //%block="Reset Text Positions"
     export function Reset(): void {
         textCancelled = true;
         dialogRunId++;
@@ -1739,7 +1739,7 @@ TopImage.y = 25
     //%group="set Dialogue Image"
     //%i.shadow=screen_image_picker
     //% i.shadow=letterNumber__image2
-    //%block="Set Down image to $i"
+    //%block="Set Bottom image to $i"
     export function setImage2(i: Image): void {
         let DownImage = sprites.create(img`
     . . . . . . . . . . . . . . . .
@@ -7387,5 +7387,65 @@ export function textwxy(MyText: string,x: number,y: number): void {
     //%group="Emotion Types"
     export function SetPlayerEmotionTypeTo3(f: number): void {
         XYPlayerEmotion = f
+    }
+    //%group="set Dialogue Image"
+    //%i.shadow=screen_image_picker
+    //%i.shadow=letterNumber__image2
+    //%block="Set Top image to $i and animate $a and speed $at and Loop $l"
+    //%a.shadow=animation_editor
+    //%at.shadow=timePicker
+    export function setImageAM(i:Image, a:Image[],at: number,l:boolean): void {
+        let TopImage = sprites.create(img`
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+`, SpriteKind.LetterImageImage)
+        TopImage.setImage(i)
+        TopImage.x = 27
+        TopImage.y = 25
+animation.runImageAnimation(TopImage, a, at, l)
+    }
+    //%group="set Dialogue Image"
+    //%i.shadow=screen_image_picker
+    //%i.shadow=letterNumber__image2
+    //%block="Set Bottom image to $i and animate $a and speed $at and Loop $l"
+    //%a.shadow=animation_editor
+    //%at.shadow=timePicker
+    export function setImage2AM(i:Image, a: Image[], at:number, l:boolean): void {
+        let DownImage = sprites.create(img`
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+`, SpriteKind.LetterImageImage)
+        DownImage.setImage(i)
+        DownImage.x = 27
+        DownImage.y = 25
+        animation.runImageAnimation(DownImage, a, at, l)
     }
 }
