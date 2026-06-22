@@ -2,7 +2,7 @@
 
 
 > Open this page at [https://neverstopthecoder.github.io/image-letter-extension/](https://neverstopthecoder.github.io/image-letter-extension/)
-
+its cool
 ## Use as Extension
 
 This repository can be added as an **extension** in MakeCode.
